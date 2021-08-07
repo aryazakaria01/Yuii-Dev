@@ -1,5 +1,5 @@
-![YuiiChan](https://telegra.ph/file/69a84b4548087b06afef4.jpg)
-# Yui-Chan // @YuiiChanBot
+![YuiiChan](https://telegra.ph/file/b89daeab2dd9c5c299dc4.jpg)
+# Yuii-Chan // @YuaMikami69_bot
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Dank-del/)</br>

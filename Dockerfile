@@ -1,61 +1,75 @@
-# set base image (host OS)
-FROM python:3.9-slim-buster
+# We're using Debian Slim Buster image
+FROM python:3.8.6-slim-buster
 
-# set the working directory in the container
-WORKDIR /app/
+ENV PIP_NO_CACHE_DIR 1
 
-RUN echo deb http://http.us.debian.org/debian/ testing non-free contrib main > /etc/apt/sources.list && \
-    apt -qq update
-RUN apt -qq install -y --no-install-recommends \
+RUN sed -i.bak 's/us-west-2\.ec2\.//' /etc/apt/sources.list
+
+# Installing Required Packages
+RUN apt update && apt upgrade -y && \
+    apt install --no-install-recommends -y \
+    debian-keyring \
+    debian-archive-keyring \
+    bash \
+    bzip2 \
     curl \
+    figlet \
     git \
-    gcc \
-    g++ \
-    build-essential \
-    gnupg2 \
-    unzip \
+    util-linux \
+    libffi-dev \
+    libjpeg-dev \
+    libjpeg62-turbo-dev \
+    libwebp-dev \
+    linux-headers-amd64 \
+    musl-dev \
+    musl \
+    neofetch \
+    php-pgsql \
+    python3-lxml \
+    postgresql \
+    postgresql-client \
+    python3-psycopg2 \
+    libpq-dev \
+    libcurl4-openssl-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    python3-pip \
+    python3-requests \
+    python3-sqlalchemy \
+    python3-tz \
+    python3-aiohttp \
+    openssl \
+    pv \
+    jq \
     wget \
+    python3 \
+    python3-dev \
+    libreadline-dev \
+    libyaml-dev \
+    gcc \
+    sqlite3 \
+    libsqlite3-dev \
+    sudo \
+    zlib1g \
     ffmpeg \
-    jq
+    libssl-dev \
+    libgconf-2-4 \
+    libxi6 \
+    xvfb \
+    unzip \
+    && rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp
 
-# install chrome
-RUN mkdir -p /tmp/ && \
-    cd /tmp/ && \
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    # -f ==> is required to --fix-missing-dependancies
-    dpkg -i ./google-chrome-stable_current_amd64.deb; apt -fqqy install && \
-    # clean up the container "layer", after we are done
-    rm ./google-chrome-stable_current_amd64.deb
+# Pypi package Repo upgrade
+RUN pip3 install --upgrade pip setuptools
 
-# install chromedriver
-RUN mkdir -p /tmp/ && \
-    cd /tmp/ && \
-    wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip  && \
-    unzip /tmp/chromedriver.zip chromedriver -d /usr/bin/ && \
-    # clean up the container "layer", after we are done
-    rm /tmp/chromedriver.zip
+# Cloning the repo
+RUN git clone https://github.com/rshero/YuiiChan /root/yui
+WORKDIR /root/yui
 
-ENV GOOGLE_CHROME_DRIVER /usr/bin/chromedriver
-ENV GOOGLE_CHROME_BIN /usr/bin/google-chrome-stable
+ENV PATH="/root/bot/bin:$PATH"
 
-# install rar
-RUN mkdir -p /tmp/ && \
-    cd /tmp/ && \
-    wget -O /tmp/rarlinux.tar.gz http://www.rarlab.com/rar/rarlinux-x64-6.0.0.tar.gz && \
-    tar -xzvf rarlinux.tar.gz && \
-    cd rar && \
-    cp -v rar unrar /usr/bin/ && \
-    # clean up
-    rm -rf /tmp/rar*
+# Install requirements
+RUN pip3 install -U -r requirements.txt
 
-# copy the dependencies file to the working directory
-COPY requirements.txt .
-
-# install dependencies
-RUN pip install -r requirements.txt
-
-# copy the content of the local src directory to the working directory
-COPY . .
-
-# command to run on container start
-CMD [ "bash", "./run" ]
+# Starting Worker
+CMD ["python3","-m","tg_bot"]

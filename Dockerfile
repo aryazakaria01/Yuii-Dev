@@ -63,7 +63,7 @@ RUN apt update && apt upgrade -y && \
 RUN pip3 install --upgrade pip setuptools
 
 # Cloning the repo
-RUN git clone https://github.com/rshero/YuiiChan /root/yui
+RUN git clone https://github.com/aryazakaria01/Yuii-Dev /root/yui
 WORKDIR /root/yui
 
 ENV PATH="/root/bot/bin:$PATH"

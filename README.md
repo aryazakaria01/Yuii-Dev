@@ -1,83 +1,52 @@
-<p align="center">
-    <a href="https://github.com/UsergeTeam/Userge">
-        <img src="resources/userge.png" alt="Userge">
-    </a>
-    <br>
-    <b>Pluggable Telegram UserBot</b>
-    <br>
-    <a href="https://github.com/UsergeTeam/Userge#documentation-">Documentation</a>
-    &nbsp•&nbsp
-    <a href="https://github.com/UsergeTeam/Userge#inspiration-">Inspiration</a>
-    &nbsp•&nbsp
-    <a href="https://github.com/UsergeTeam/Userge#features-">Features</a>
-    &nbsp•&nbsp
-    <a href="https://github.com/UsergeTeam/Userge#example-plugin-">Example</a>
-    &nbsp•&nbsp
-    <a href="https://github.com/UsergeTeam/Userge#project-credits-">Project Credits</a>
-    &nbsp•&nbsp
-    <a href="https://github.com/UsergeTeam/Userge#copyright--license-">Copyright & License</a>
-</p>
+![YuiiChan](https://telegra.ph/file/69a84b4548087b06afef4.jpg)
+# Yui-Chan // @YuiiChanBot
 
-# Userge 🔥
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Dank-del/)</br>
 
-[![Build Status](https://travis-ci.com/UsergeTeam/Userge.svg?branch=alpha)](https://travis-ci.com/UsergeTeam/Userge)
-![Python Version](https://img.shields.io/badge/python-3.8/3.9-lightgrey)
-![Release](https://img.shields.io/github/v/release/UsergeTeam/Userge)
-![Stars](https://img.shields.io/github/stars/UsergeTeam/Userge)
-![Forks](https://img.shields.io/github/forks/UsergeTeam/Userge)
-![Issues Open](https://img.shields.io/github/issues/UsergeTeam/Userge)
-![Issues Closed](https://img.shields.io/github/issues-closed/UsergeTeam/Userge)
-![PRs Open](https://img.shields.io/github/issues-pr/UsergeTeam/Userge)
-![PRs Closed](https://img.shields.io/github/issues-pr-closed/UsergeTeam/Userge)
-![Contributors](https://img.shields.io/github/contributors/UsergeTeam/Userge)
-![Repo Size](https://img.shields.io/github/repo-size/UsergeTeam/Userge)
-![License](https://img.shields.io/github/license/UsergeTeam/Userge)
-![Commit Activity](https://img.shields.io/github/commit-activity/m/UsergeTeam/Userge)
-[![Plugins Repo!](https://img.shields.io/badge/Plugins%20Repo-!-orange)](https://github.com/UsergeTeam/Userge-Plugins)
-[![Join Channel!](https://img.shields.io/badge/Join%20Channel-!-red)](https://t.me/theUserge)
-[![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/UsergeTeam/Userge/?ref=repository-badge)
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/UsergeTeam/Userge)
+# YuiiChan 🔥
 
-> **Userge** is a Powerful , _Pluggable_ Telegram UserBot written in _Python_ using [Pyrogram](https://github.com/pyrogram/pyrogram).
+![Python Version](https://img.shields.io/badge/python-3.8-green?style=for-the-badge&logo=appveyor)
+![Issues](https://img.shields.io/github/issues/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)
+![Forks](https://img.shields.io/github/forks/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)
+![Stars](https://img.shields.io/github/stars/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)
+![LICENSE](https://img.shields.io/github/license/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)
+![Contributors](https://img.shields.io/github/contributors/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)
+![Repository Size](https://img.shields.io/github/repo-size/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)</br>
 
-## Documentation 📘
+> **YuiiChan** A modular telegram Python bot running on python3 with an sqlalchemy database.
 
-> you can find full documentation [**here**](https://theuserge.github.io)
+Originally a Marie fork - Yuii has evolved further and was built to be more useful for Anime Chats.
 
-## Inspiration 😇
+Can be found on telegram as [Yuii-Chan](https://t.me/YuaMikami69_bot).
 
-> This project is inspired by the following projects :)
+The Support group can be reached out to at [Yuii Chan Club](https://t.me/yuiichansupport), where you can ask for help setting up your bot, discover/request new features, report bugs, and stay in the loop whenever a new update is available.
 
-* [tg_userbot](https://github.com/watzon/tg_userbot) ( heavily ) 🤗
-* [PyroGramBot](https://github.com/SpEcHiDe/PyroGramBot)
-* [Telegram-Paperplane](https://github.com/RaphielGang/Telegram-Paperplane)
-* [UniBorg](https://github.com/SpEcHiDe/UniBorg)
-
-> Special Thanks to all of you !!!.
-
-## How To Deploy 👷
+## Setting up the bot (Read this before trying to use!):
 
 
-* [**With Docker 🐳**](https://theuserge.github.io/deployment#deploying-with-docker-)
+# How to setup
 
-* [**With Git, Python and pip 🔧**](https://theuserge.github.io/deployment#deploying-with-legacy-method)
+- `git clone https://github.com/aryazakaria01/Yuii-Dev`
+- `cd YuiChant`
+- `cp sample_config.ini config.ini`
+- *Fill in all the vars*
+- `pip3 install -U -r requirements.txt`
+- *And finally* `python3 -m tg_bot`
 
-* [**With Zeet ☻**](https://theuserge.github.io/deployment.html#deploying-on-zeet)
+*Enjoy!*
 
-### Video Tutorial 🎥
 
-  [![Tutorial](resources/tutorial.jpg)](https://youtu.be/M4T_BJvFqkc "Tutorial")
+For queries or any issues regarding the bot please open an issue ticket or visit us at [Yuii Chan Club](https://t.me/yuiichansupport)  
 
-### Support & Discussions 👥
+## Credits
+The bot is based of on the original work done by [Arya Zakaria](https://github.com/aryazakaria01)
+This repo was just reamped to suit an Anime-centric community. All original credits go to Paul and his dedication, Without his efforts, this fork would not have been possible!
 
-> Head over to the [Discussion Group](https://t.me/usergeot) and [Update Channel](https://t.me/theUserge)
 
-### Project Credits 💆‍♂️
+Should any be missing kindly let us know at [Yuii Chan Club](https://t.me/yuiichansupport) or simply submit a pull request on the readme.
 
-* [Specially to these projects](https://github.com/UsergeTeam/Userge#inspiration-) 🥰
-* [Contributors](https://github.com/UsergeTeam/Userge/graphs/contributors) 👥
 
-### Copyright & License 👮
+-------------------------------------------------------------------------------------
 
-* Copyright (C) 2020 - 2021 by [UsergeTeam](https://github.com/UsergeTeam) ❤️️
-* Licensed under the terms of the [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](https://github.com/UsergeTeam/Userge/blob/master/LICENSE)
+*Yui is free and open source software and supports the right to read, distribute and repair.*

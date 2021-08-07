@@ -19,7 +19,7 @@ Originally a marie fork - Yui has evolved further and was built to be more usefu
 
 Can be found on telegram as [YuiChan](https://t.me/@YuaMikami69_bot).
 
-The Support group can be reached out to at [Yuii Chan Club](https://t.me/yuiichansupport), where you can ask for help setting up your bot, discover/request new features, report bugs, and stay in the loop whenever a new update is available.
+The Support group can be reached out to at [Yuii Chan Club](https://t.me/YuiiSupport), where you can ask for help setting up your bot, discover/request new features, report bugs, and stay in the loop whenever a new update is available.
 
 
 
@@ -38,14 +38,14 @@ The Support group can be reached out to at [Yuii Chan Club](https://t.me/yuiicha
 *Enjoy!*
 
 
-For queries or any issues regarding the bot please open an issue ticket or visit us at [Yuii Chan Club](https://t.me/yuiichansupport)  
+For queries or any issues regarding the bot please open an issue ticket or visit us at [Yuii Chan Club](https://t.me/YuiiSupport)  
 
 ## Credits
 The bot is based of on the original work done by [Arya Zakaria](https://github.com/aryazakaria01)
 This repo was just reamped to suit an Anime-centric community. All original credits go to Paul and his dedication, Without his efforts, this fork would not have been possible!
 
 
-Should any be missing kindly let us know at [Yuii Chan Club](https://t.me/yuiichansupport) or simply submit a pull request on the readme.
+Should any be missing kindly let us know at [Yuii Chan Club](https://t.me/YuiiSupport) or simply submit a pull request on the readme.
 
 
 -------------------------------------------------------------------------------------

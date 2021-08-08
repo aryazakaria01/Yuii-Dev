@@ -50,5 +50,3 @@ Should any be missing kindly let us know at [Yuii Support | ON TOPIC](https://t.
 
 
 -------------------------------------------------------------------------------------
-
-*Yui is free and open source software and supports the right to read, distribute and repair.*

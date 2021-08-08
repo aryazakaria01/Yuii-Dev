@@ -2,7 +2,7 @@ import html
 
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
+from telegram.ext import CallbackContext, CommandHandler, Filters
 from telegram.utils.helpers import mention_html, mention_markdown
 from tg_bot import SUDO_USERS, dispatcher
 from tg_bot.modules.disable import DisableAbleCommandHandler
@@ -15,12 +15,12 @@ from tg_bot.modules.helper_funcs.chat_status import (
     ADMIN_CACHE,
 )
 
-from tg_bot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from tg_bot.modules.helper_funcs.extraction import (
+    extract_user, 
+    extract_user_and_text,
+)
 from tg_bot.modules.log_channel import loggable
 from tg_bot.modules.helper_funcs.alternate import send_message
-from tg_bot import kp, get_entity
-from pyrogram import Client, filters
-from pyrogram.types import Chat, User
 from tg_bot.modules.language import gs
 
 
@@ -30,9 +30,7 @@ from tg_bot.modules.language import gs
 @user_admin
 @loggable
 def promote(update: Update, context: CallbackContext) -> str:
-    bot = context.bot
-    args = context.args
-
+    bot, args = context.bot, context.args
     message = update.effective_message
     chat = update.effective_chat
     user = update.effective_user
@@ -113,9 +111,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 @user_admin
 @loggable
 def demote(update: Update, context: CallbackContext) -> str:
-    bot = context.bot
-    args = context.args
-
+    bot, args = context.bot, context.args
     chat = update.effective_chat
     message = update.effective_message
     user = update.effective_user
@@ -192,9 +188,7 @@ def refresh_admin(update, _):
 @can_promote
 @user_admin
 def set_title(update: Update, context: CallbackContext):
-    bot = context.bot
-    args = context.args
-
+    bot, args = context.bot, context.args
     chat = update.effective_chat
     message = update.effective_message
 
@@ -256,13 +250,11 @@ def set_title(update: Update, context: CallbackContext):
 @user_admin
 @loggable
 def pin(update: Update, context: CallbackContext) -> str:
-    bot = context.bot
-    args = context.args
-
+    bot, args = context.bot, context.args
     user = update.effective_user
     chat = update.effective_chat
 
-    is_group = chat.type != "private" and chat.type != "channel"
+    is_group = chat.type not in ("private", "channel")
     prev_message = update.effective_message.reply_to_message
 
     is_silent = True
@@ -327,7 +319,7 @@ def invite(update: Update, context: CallbackContext):
 
     if chat.username:
         update.effective_message.reply_text(f"https://t.me/{chat.username}")
-    elif chat.type == chat.SUPERGROUP or chat.type == chat.CHANNEL:
+    elif chat.type in [chat.SUPERGROUP, chat.CHANNEL]:
         bot_member = chat.get_member(bot.id)
         if bot_member.can_invite_users:
             invitelink = bot.exportChatInviteLink(chat.id)
@@ -341,11 +333,11 @@ def invite(update: Update, context: CallbackContext):
             "I can only give you invite links for supergroups and channels, sorry!"
         )
 
-@run_async
+
 @connection_status
 def adminlist(update, context):
-    chat = update.effective_chat  # type: Optional[Chat]
-    user = update.effective_user  # type: Optional[User]
+    chat = update.effective_chat
+    user = update.effective_user
     args = context.args
     bot = context.bot
     if update.effective_message.chat.type == "private":
@@ -435,8 +427,10 @@ def adminlist(update, context):
     except BadRequest:  # if original message is deleted
         return
 
+
 def get_help(chat):
     return gs(chat, "admin_help")
+
 
 PIN_HANDLER = CommandHandler(
     "pin", pin, filters=Filters.chat_type.groups, run_async=True
@@ -444,15 +438,13 @@ PIN_HANDLER = CommandHandler(
 UNPIN_HANDLER = CommandHandler(
     "unpin", unpin, filters=Filters.chat_type.groups, run_async=True
 )
-
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["admins", "adminlist"], adminlist)
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite, run_async=True)
-
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote, run_async=True)
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, run_async=True)
-
 SET_TITLE_HANDLER = CommandHandler("title", set_title, run_async=True)
 ADMIN_REFRESH_HANDLER = CommandHandler("admincache", refresh_admin, run_async=True)
+
 
 dispatcher.add_handler(ADMINLIST_HANDLER)
 dispatcher.add_handler(PIN_HANDLER)
@@ -465,7 +457,14 @@ dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
 
 __mod_name__ = "Admin"
-__command_list__ = ["adminlist", "admins", "invitelink", "promote", "demote", "admincache"]
+__command_list__ = [
+    "adminlist", 
+    "admins",
+    "invitelink",
+    "promote", 
+    "demote",
+    "admincache",
+]
 __handlers__ = [
     PIN_HANDLER,
     UNPIN_HANDLER,

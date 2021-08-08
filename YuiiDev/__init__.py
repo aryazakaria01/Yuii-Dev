@@ -40,7 +40,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 7:
     log.error(
         "[Yuii] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
     )
-    quit(1)
+    sys.exit(1)
 
 parser = ConfigParser()
 parser.read("config.ini")

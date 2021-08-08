@@ -109,87 +109,87 @@ bans_help: |
     - /kick <userhandle>: mengeluarkan pengguna dari grup, (melalui handle, atau membalas)
 
 blacklist_help: |
-    Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
-    *NOTE*: Blacklists do not affect group admins.
-     • `/blacklist`*:* View the current blacklisted words.
-    Admin only:
-     • `/addblacklist <triggers>`*:* Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
-     • `/unblacklist <triggers>`*:* Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
-     • `/blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>`*:* Action to perform when someone sends blacklisted words.
+    Daftar hitam digunakan untuk menghentikan pemicu tertentu agar tidak diucapkan dalam grup. Setiap kali pemicu disebutkan, pesan akan segera dihapus. Kombo yang bagus terkadang memasangkan ini dengan filter peringatan!
+    *CATATAN*: Daftar hitam tidak memengaruhi admin grup.
+     • `/blacklist`*:* Melihat kata-kata yang masuk daftar hitam saat ini.
+    Hanya admin:
+     • `/addblacklist <triggers>`*:* Menambahkan pemicu ke daftar hitam. Setiap baris dianggap sebagai satu pemicu, jadi menggunakan baris yang berbeda akan memungkinkan Anda untuk menambahkan beberapa pemicu.
+     • `/unblacklist <triggers>`*:* Hapus pemicu dari daftar hitam. Logika baris baru yang sama berlaku di sini, sehingga Anda dapat menghapus beberapa pemicu sekaligus.
+     • `/blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>`*:* Tindakan yang dilakukan ketika seseorang mengirim kata-kata yang masuk daftar hitam.
 
 blacklist_sticker_help: |
-    Blacklist sticker is used to stop certain stickers. Whenever a sticker is sent, the message will be deleted immediately.
-    *NOTE:* Blacklist stickers do not affect the group admin.
-    • /blsticker*:* See current blacklisted sticker.
-    *Only admin:*
-    • /addblsticker <sticker link>*:* Add the sticker trigger to the black list. Can be added via reply sticker.
-    • /unblsticker <sticker link>*:* Remove triggers from blacklist. The same newline logic applies here, so you can delete multiple triggers at once.
-    • /rmblsticker <sticker link>*:* Same as above.
-    • /blstickermode <ban/tban/mute/tmute>*:* sets up a default action on what to do if users use blacklisted stickers. (`tmute seems broken right now`)
-    Note:
-    • <sticker link> can be `https://t.me/addstickers/<sticker>` or just `<sticker>` or reply to the sticker message.
+    Stiker blacklist digunakan untuk menghentikan stiker tertentu. Setiap kali stiker dikirim, pesan akan segera dihapus.
+    *CATATAN:* Stiker Blacklist tidak mempengaruhi admin grup.
+    • /blsticker*:* Lihat stiker yang masuk daftar hitam saat ini.
+    *Hanya Admin :*
+    • /addblsticker <sticker link>*:* Tambahkan pemicu stiker ke daftar hitam. Dapat ditambahkan melalui stiker balasan.
+    • /unblsticker <sticker link>*:* Hapus pemicu dari daftar hitam. Logika baris baru yang sama berlaku di sini, sehingga Anda dapat menghapus beberapa pemicu sekaligus.
+    • /rmblsticker <tautan stiker>*:* Sama seperti di atas.
+    • /blstickermode <ban/tban/mute/tmute>*:* mengatur tindakan default tentang apa yang harus dilakukan jika pengguna menggunakan stiker yang masuk daftar hitam. (`tmute tampaknya rusak sekarang`)
+    Catatan:
+    • <sticker link> bisa berupa `https://t.me/addstickers/<sticker>` atau cukup `<sticker>` atau membalas pesan stiker.
 
 cleaner_help: |
-    - /cleanbluetext <on/off/yes/no> - clean commands after sending
-    - /ignorecleanbluetext <word> - prevent auto cleaning of the command
-    - /unignorecleanbluetext <word> - remove prevent auto cleaning of the command
-    - /listcleanbluetext - list currently whitelisted commands
+    - /cleanbluetext <on/off/yes/no> - bersihkan perintah setelah mengirim
+    - /ignorecleanbluetext <word> - mencegah pembersihan otomatis dari perintah
+    - /unignorecleanbluetext <word> - hapus mencegah pembersihan otomatis dari perintah
+    - /listcleanbluetext - daftar perintah yang saat ini masuk daftar putih
 
 connections_help: |
-    - /connect: connect a chat (Can be done in a group by /connect or /connect <chat id> in PM)
-    - /connection: list connected chats
-    - /disconnect: disconnect from a chat
-    - /helpconnect: list available commands that can be done remotely
-     *Admin only:*
-    - /allowconnect <yes/no>: allow a user to connect to a chat
+    - /connect: menghubungkan obrolan (Dapat dilakukan dalam grup dengan /connect atau /connect <chat id> di PM)
+    - /koneksi: daftar obrolan yang terhubung
+    - /disconnect: putuskan sambungan dari obrolan
+    - /helpconnect: daftar perintah yang tersedia yang dapat dilakukan dari jarak jauh
+     *Hanya Admin:*
+    - /allowconnect <yes/no>: izinkan pengguna terhubung ke obrolan
 
 cust_filters_help: |
-    • `/filters`*:* List all active filters saved in the chat.
-     *Admin only:*
-    • `/filter <keyword> <reply message>`*:* Add a filter to this chat. The bot will now reply that message whenever 'keyword'
-      is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter
-      keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you
-      doin?
-    • `/stop <filter keyword>`*:* Stop that filter.
-     *Chat creator only:*
-    • `/removeallfilters`*:* Remove all chat filters at once.
-      *Note*: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
-        Check `/markdownhelp` to know more!
+    • `/filters`*:* Mencantumkan semua filter aktif yang disimpan dalam obrolan.
+     *Hanya Admin:*
+    • `/filter <kata kunci> <balas pesan>`*:* Tambahkan filter ke obrolan ini. Bot sekarang akan membalas pesan itu setiap kali 'kata kunci'
+      disebutkan. Jika Anda membalas stiker dengan kata kunci, bot akan membalas dengan stiker itu. CATATAN: semua filter
+      kata kunci dalam huruf kecil. Jika Anda ingin kata kunci Anda menjadi kalimat, gunakan tanda kutip. misalnya: /filter "hey there" Bagaimana kabarmu?
+      lakukan?
+    • `/stop <filter kata kunci>`*:* Hentikan filter tersebut.
+     *Khusus pembuat obrolan:*
+    • `/removeallfilters`*:* Hapus semua filter obrolan sekaligus.
+      *Catatan*: Filter juga mendukung pemformat penurunan harga seperti: {first}, {last} dll. dan tombol.
+        Periksa `/markdownhelp` untuk mengetahui lebih lanjut!
 
 disable_help: |
-    Not everyone wants every feature that the bot offers. Some commands are best
-    left unused; to avoid spam and abuse.
-    This allows you to disable some commonly used commands, so noone can use them.
-    It'll also allow you to autodelete them, stopping people from bluetexting.
-     • /cmds: Check the current status of disabled commands
-     *Admin only:*
-     • /enable <cmd name>: Enable that command
-     • /disable <cmd name>: Disable that command
-     • /listcmds: List all possible disablable commands
+    Tidak semua orang menginginkan setiap fitur yang ditawarkan bot. Beberapa perintah adalah yang terbaik
+    dibiarkan tidak terpakai; untuk menghindari spam dan penyalahgunaan.
+    Ini memungkinkan Anda untuk menonaktifkan beberapa perintah yang umum digunakan, sehingga tidak ada yang dapat menggunakannya.
+    Ini juga akan memungkinkan Anda untuk menghapusnya secara otomatis, menghentikan orang-orang dari bluetexting.
+     • /cmds: Memeriksa status perintah yang dinonaktifkan saat ini
+     *Hanya Admin:*
+     • /enable <cmd name>: Aktifkan perintah itu
+     • /disable <cmd name>: Nonaktifkan perintah itu
+     • /listcmds: Daftar semua perintah yang mungkin dinonaktifkan
 
 feds_help: |
-    Ah, group management. Everything is fun, until the spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
-    But then you have many groups, and you don't want this spammer to be in one of your groups - how can you deal? Do you have to manually block it, in all your groups?
-    No longer! With Federation, you can make a ban in one chat overlap with all other chats.
-    You can even designate admin federations, so your trusted admin can ban all the chats you want to protect.
-    *Commands Available*:
-     • /newfed <fedname>: Create a new Federation with the name given. Users are only allowed to have one Federation. This method can also be used to rename the Federation. (max. 64 characters)
-     • /delfed: Delete your Federation, and any information related to it. Will not cancel blocked users.
-     • /fedinfo <FedID>: Information about the specified Federation.
-     • /joinfed <FedID>: Join the current chat to the Federation. Only chat owners can do this. Every chat can only be in one Federation.
-     • /leavefed <FedID>: Leave the Federation given. Only chat owners can do this.
-     • /fpromote <user>: Promote Users to give fed admin. Fed owner only.
-     • /fdemote <user>: Drops the User from the admin Federation to a normal User. Fed owner only.
-     • /fban <user>: Prohibits users from all federations where this chat takes place, and executors have control over.
-     • /unfban <user>: Cancel User from all federations where this chat takes place, and that the executor has control over.
-     • /setfrules: Arrange Federation rules.
-     • /frules: See Federation regulations.
-     • /chatfed: See the Federation in the current chat.
-     • /fedadmins: Show Federation admin.
-     • /fbanlist: Displays all users who are victimized at the Federation at this time.
-     • /fednotif <on / off>: Federation settings not in PM when there are users who are fban / unfban.
-     • /fedchats: Get all the chats that are connected in the Federation.
-     • /importfbans: Reply to the Federation backup message file to import the banned list to the Federation now. (disabled for now.)
+    Ah, manajemen grup. Semuanya menyenangkan, sampai spammer mulai masuk ke grup Anda, dan Anda harus memblokirnya. Maka Anda harus mulai melarang lebih banyak, dan lebih banyak lagi, dan itu menyakitkan.
+    Tapi kemudian Anda memiliki banyak grup, dan Anda tidak ingin spammer ini berada di salah satu grup Anda - bagaimana Anda bisa menanganinya? Apakah Anda harus memblokirnya secara manual, di semua grup Anda?
+    Tidak lagi! Dengan Federasi, Anda dapat membuat larangan dalam satu obrolan tumpang tindih dengan semua obrolan lainnya.
+    Anda bahkan dapat menetapkan federasi admin, sehingga admin tepercaya Anda dapat memblokir semua obrolan yang ingin Anda lindungi.
+    *Perintah Tersedia*:
+     • /newfed <fedname>: Buat Federasi baru dengan nama yang diberikan. Pengguna hanya diperbolehkan memiliki satu Federasi. Metode ini juga dapat digunakan untuk mengganti nama Federasi. (maks. 64 karakter)
+     • /delfed: Hapus Federasi Anda, dan informasi apa pun yang terkait dengannya. Tidak akan membatalkan pengguna yang diblokir.
+     • /fedinfo <FedID>: Informasi tentang Federasi yang ditentukan.
+     • /joinfed <FedID>: Bergabung dengan obrolan saat ini ke Federasi. Hanya pemilik obrolan yang dapat melakukan ini. Setiap obrolan hanya dapat berada dalam satu Federasi.
+     • /leavefed <FedID>: Meninggalkan Federasi yang diberikan. Hanya pemilik obrolan yang dapat melakukan ini.
+     • /fpromote <user>: Promosikan Pengguna untuk memberi makan admin. Hanya pemilik Fed.
+     • /fdemote <user>: Menghapus Pengguna dari Federasi admin menjadi Pengguna biasa. Hanya pemilik Fed.
+     • /fban <user>: Melarang pengguna dari semua federasi tempat obrolan ini berlangsung, dan pelaksana memiliki kendali atas.
+     • /unfban <user>: Membatalkan Pengguna dari semua federasi tempat obrolan ini berlangsung, dan yang dikendalikan oleh pelaksana.
+     • /setfrules: Menyusun aturan Federasi.
+     • /frules: Lihat peraturan Federasi.
+     • /chatfed: Lihat Federasi dalam obrolan saat ini.
+     • /fedadmins: Tampilkan admin Federasi.
+     • /fbanlist: Menampilkan semua pengguna yang menjadi korban di Federasi saat ini.
+     • /fednotif <on/off>: Setting federasi tidak di PM saat ada user yang fban/unfban.
+     • /fedchats: Dapatkan semua obrolan yang terhubung di Federasi.
+     • /importfbans: Balas ke file pesan cadangan Federasi untuk mengimpor daftar terlarang ke Federasi sekarang. (dinonaktifkan untuk saat ini.)
 
 fun_help: |
      • /runs: reply a random string from an array of replies.

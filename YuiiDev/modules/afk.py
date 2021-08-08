@@ -21,6 +21,7 @@ AFK_REPLY_GROUP = 8
 def afk(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(None, 1)
     afk_time = int(time.time())
+    message = update.effective_message
     notice = ""
     if len(args) >= 2:
         reason = args[1]
@@ -32,7 +33,7 @@ def afk(update: Update, context: CallbackContext):
 
     sql.set_afk(update.effective_user.id, afk_time, reason)
     fname = update.effective_user.first_name
-    update.effective_message.reply_text("{} is now away!{}".format(fname, notice))
+    message.reply_text("{} is now away!{}".format(fname, notice))
 
 
 def no_longer_afk(update: Update, context: CallbackContext):
@@ -59,7 +60,7 @@ def no_longer_afk(update: Update, context: CallbackContext):
                 "Where is {}?\nIn the chat!",
             ]
             chosen_option = random.choice(options)
-            update.effective_message.reply_text(chosen_option.format(firstname))
+            message.reply_text(chosen_option.format(firstname))
         except:
             return
 
@@ -123,6 +124,7 @@ def reply_afk(update: Update, context: CallbackContext):
 def check_afk(update, context, user_id, fst_name, userc_id):
     if sql.is_afk(user_id):
         user = sql.check_afk_status(user_id)
+        message = update.effective_message
         afk_time = sql.get_afk_time(user_id)
         afk_since = get_readable_time((time.time() - afk_time))
         if not user.reason:
@@ -136,7 +138,7 @@ def check_afk(update, context, user_id, fst_name, userc_id):
             res = "{} is afk since {}\nReason: {}".format(
                 fst_name, afk_since, user.reason
             )
-            update.effective_message.reply_text(res)
+            message.reply_text(res)
 
 
 def get_readable_time(seconds: int) -> str:

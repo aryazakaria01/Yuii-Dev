@@ -17,96 +17,96 @@ grp_start_text: "Ya saya online!"
 
 pm_help_text: |
    Halo disana! Nama saya *Yuii*.*.
-   I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of
-   the things I can help you with.
-   *Main* commands available:
-    • /start: Starts me, can be used to check I'm alive or not.
-    • /help: PM's you this message.
-    • /language: Change bot language.
+   Saya adalah bot manajemen grup modular dengan beberapa tambahan yang menyenangkan! Lihatlah yang berikut ini untuk mendapatkan ide dari beberapa
+   hal-hal yang dapat saya bantu.
+   *Utama* perintah yang tersedia:
+    • /start: Mulai saya, dapat digunakan untuk memeriksa saya hidup atau tidak.
+    • /help: PM pesan ini untuk Anda.
+    • /language: Mengubah bahasa bot.
     • /settings:
-      - in PM: will send you your settings for all supported modules.
-      - in a group: will redirect you to pm, with all that chat's settings.
-    Click on the buttons below to get documentation about specific modules!
+      - di PM: akan mengirimkan pengaturan Anda untuk semua modul yang didukung.
+      - dalam grup: akan mengarahkan Anda ke pm, dengan semua pengaturan obrolan itu.
+    Klik tombol di bawah untuk mendapatkan dokumentasi tentang modul tertentu!
 
-add_bot_to_group_btn: "Add Yuii"
-support_chat_link_btn: "Support"
-updates_channel_link_btn: "Updates"
-src_btn: "Source code"
+add_bot_to_group_btn: "Tambahkan Yuii"
+support_chat_link_btn: "Bantuan"
+updates_channel_link_btn: "Pembaruan"
+src_btn: "Kode sumber"
 
 admin_help: |
-   • `/admins`*:* list of admins in the chat
-   *Admins only:*
-   • `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users.
-   • `/unpin`*:* unpins the currently pinned message
-   • `/invitelink`*:* gets invitelink
-   • `/promote`*:* promotes the user replied to
-   • `/demote`*:* demotes the user replied to
-   • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
+   • `/admins`*:* daftar admin di chat
+   *Hanya admin:*
+   • `/pin`*:* diam-diam menyematkan pesan yang dibalas - tambahkan `'keras'` atau `'beri tahu'` untuk memberikan pemberitahuan kepada pengguna.
+   • `/unpin`*:* melepas pin pesan yang saat ini disematkan
+   • `/invitelink`*:* dapatkan link undangan
+   • `/promote`*:* mempromosikan pengguna yang dibalas
+   • `/demote`*:* menurunkan pengguna yang dibalas
+   • `/title <title>`*:* menetapkan judul khusus untuk admin yang dipromosikan bot
 
 afk_help: |
-   - /afk <reason>: mark yourself as AFK(away from keyboard).
-   - brb <reason>: same as the afk command - but not a command.
-   When marked as AFK, any mentions will be replied to with a message to say you're not available!
+   - /afk <reason>: tandai diri Anda sebagai AFK (jauh dari keyboard).
+   - brb <reason>: sama dengan perintah afk - tetapi bukan perintah.
+   Ketika ditandai sebagai AFK, penyebutan apa pun akan dibalas dengan pesan yang menyatakan bahwa Anda tidak tersedia!
 
 anilist_help: |
     *AniList*
-    Get information about anime, manga or characters with the help of this module! All data is fetched from [AniList](anilist.co).
-    *Available commands:*
-     - `/anime <anime>`: returns information about the anime.
-     - `/character <character>`: returns information about the character.
-     - `/manga <manga>`: returns information about the manga.
-    For Getting Information from [MyAnimeList](https://myanimelist.net)
-      • `/yanime <anime>`*:* returns information about the anime.
-      • `/ycharacter <character>`*:* returns information about the character.
-      • `/ymanga <manga>`*:* returns information about the manga.
-      • `/yupcoming`*:* returns a list of new anime in the upcoming seasons.
-      • `/user <user>`*:* returns information about a MyAnimeList user.
+    Dapatkan informasi tentang anime, manga atau karakter dengan bantuan modul ini! Semua data diambil dari [AniList](anilist.co).
+    *Perintah yang tersedia:*
+     - `/anime <anime>`: mendapatkan informasi tentang anime.
+     - `/character <character>`: mendapatkan informasi tentang karakter.
+     - `/manga <manga>`: mendapatkan informasi tentang manga.
+    Untuk mendapatkan informasi dari [MyAnimeList](https://myanimelist.net)
+      • `/yanime <anime>`*:* mendapatkan informasi tentang anime.
+      • `/ycharacter <character>`*:* mendapatkan informasi tentang karakter.
+      • `/ymanga <manga>`*:* mendapatkan informasi tentang manga.
+      • `/yupcoming`*:* mendapatkan daftar anime baru di musim mendatang.
+      • `/user <user>`*:* mendapatkan informasi tentang pengguna MyAnimeList.
             
-    For Anime Quotes
+    Untuk Quote Anime
             
-      • `/quote`*:* returns a random anime quote.
+      • `/quote`*:* mendapatkan quote anime secara acak.
 
 antiflood_help: |
-    Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood
-    will result in restricting that user.
-     This will mute users if they send more than 10 messages in a row, bots are ignored.
-     • `/flood`*:* Get the current flood control setting
-    • *Admins only:*
-     • `/setflood <int/'no'/'off'>`*:* enables or disables flood control
-     *Example:* `/setflood 10`
-     • `/setfloodmode <ban/kick/mute/tban/tmute> <value>`*:* Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
-    • *Note:*
-     • Value must be filled for tban and tmute!!
-     It can be:
-     `5m` = 5 minutes
-     `6h` = 6 hours
-     `3d` = 3 days
-     `1w` = 1 week
+    Antiflood memungkinkan Anda untuk mengambil tindakan pada pengguna yang mengirim lebih dari x pesan berturut-turut. Melebihi jumlah yang ditetapkan
+    akan mengakibatkan pembatasan pengguna tersebut.
+     Ini akan membisukan pengguna jika mereka mengirim lebih dari 10 pesan berturut-turut, bot diabaikan.
+     • `/flood`*:* Dapatkan pengaturan pengendalian pesan berulang saat ini
+    • *Hanya Admin:*
+     • `/setflood <int/'no'/'off'>`*:* mengaktifkan atau menonaktifkan kontrol pesan yang sama
+     *Contoh:* `/setflood 10`
+     • `/setfloodmode <ban/kick/mute/tban/tmute> <value>`*:* Tindakan yang dilakukan ketika pengguna telah melampaui batas pesan. ban/kick/mute/tmute/tban
+    • *Catatan:*
+     • Nilai harus diisi untuk tban dan tmute!!
+     Ini bisa berupa:
+     `5m` = 5 menit
+     `6j` = 6 jam
+     `3d` = 3 hari
+     `1w` = 1 minggu
 
 approve_help: |
-     Sometimes, you might trust a user not to send unwanted content.
-     Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
-     That's what approvals are for - approve of trustworthy users to allow them to send
-     *Admin commands:*
-     • `/approval`*:* Check a user's approval status in current chat.
-     • `/approve`*:* Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
-     • `/unapprove`*:* Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
-     • `/approved`*:* List all approved users.
-     • `/unapproveall`*:* Unapprove *ALL* users in a chat. This cannot be undone.
+     Terkadang, Anda mungkin memercayai pengguna untuk tidak mengirim konten yang tidak diinginkan.
+     Mungkin tidak cukup untuk menjadikannya admin, tetapi Anda mungkin baik-baik saja dengan kunci, daftar hitam, dan antiflood yang tidak berlaku untuk mereka.
+     Untuk itulah persetujuan - setujui pengguna yang dapat dipercaya untuk memungkinkan mereka mengirim
+     *Perintah Admin:*
+     • `/approval`*:* Memeriksa status persetujuan pengguna dalam obrolan saat ini.
+     • `/approve`*:* Menyetujui pengguna. Kunci, daftar hitam, dan antibanjir tidak akan berlaku lagi.
+     • `/unapprove`*:* Tidak menyetujui pengguna. Mereka sekarang akan dikenakan kunci, daftar hitam, dan antibanjir lagi.
+     • `/approved`*:* Mencantumkan semua pengguna yang disetujui.
+     • `/unapproveall`*:* Batalkan persetujuan *SEMUA* pengguna dalam obrolan. Ini tidak dapat dibatalkan.
 
 backup_help: |
-    *Admin only:*
-     - /import: reply to a group butler backup file to import as much as possible, making the transfer super simple! Note \
-       that files/photos can't be imported due to telegram restrictions.
-     - /export: !!! This isn't a command yet, but should be coming soon!
+    *Hanya Admin:*
+     - /import: balas file cadangan butler grup untuk mengimpor sebanyak mungkin, membuat transfer menjadi sangat sederhana! Catatan \
+       bahwa file/foto tidak dapat diimpor karena pembatasan telegram.
+     - /export: !!! Ini belum menjadi perintah, tetapi akan segera hadir!
 
 bans_help: |
-    - /kickme: kicks the user who issued the command
-     *Admin only:*
-    - /ban <userhandle>: bans a user. (via handle, or reply)
-    - /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-    - /unban <userhandle>: unbans a user. (via handle, or reply)
-    - /kick <userhandle>: kick a user out of the group, (via handle, or reply)
+    - /kickme: menendang pengguna yang mengeluarkan perintah
+     *Hanya Admin:*
+    - /ban <userhandle>: melarang pengguna. (melalui pegangan, atau balasan)
+    - /tban <userhandle> x(m/h/d): melarang pengguna untuk x waktu. (melalui pegangan, atau balasan). m = menit, h = jam, d = hari.
+    - /unban <userhandle>: membatalkan pemblokiran pengguna. (melalui pegangan, atau balasan)
+    - /kick <userhandle>: mengeluarkan pengguna dari grup, (melalui handle, atau membalas)
 
 blacklist_help: |
     Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!

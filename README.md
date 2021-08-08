@@ -1,5 +1,5 @@
 ![YuiiChan](https://telegra.ph/file/b89daeab2dd9c5c299dc4.jpg)
-# Yuii-Chan // @YuaMikami69_bot
+# Yuii-Chan // @YuiiDev_bot
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/aryazakaria01)</br>
@@ -18,7 +18,7 @@ A modular telegram Python bot running on python3 with an sqlalchemy database.
 
 Originally a marie fork - Yui has evolved further and was built to be more useful for Anime Chats.
 
-Can be found on telegram as [YuiChan](https://t.me/@YuaMikami69_bot).
+Can be found on telegram as [YuiiChan](https://t.me/@YuiiDev_bot).
 
 The Support group can be reached out to at [Yuii Support | ON TOPIC](https://t.me/YuiiSupport), where you can ask for help setting up your bot, discover/request new features, report bugs, and stay in the loop whenever a new update is available.
 

@@ -1,6 +1,7 @@
 import logging
 import os
-import sys, json
+import sys
+import json
 import time
 import spamwatch
 import telegram.ext as tg
@@ -30,7 +31,7 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 log = logging.getLogger("rich")
 
-log.info("[Yuii] Yuii is starting.S| Licensed under GPLv3.")
+log.info("[Yuii] Yuii is starting | Licensed under GPLv3.")
 
 log.info("[Yuii] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
 log.info("[Yuii] Project maintained by: github.com/aryazakaria01 (t.me/Badboyanim)")
@@ -123,7 +124,6 @@ kp = Client(
 apps = []
 apps.append(kp)
 
-
 async def get_entity(client, entity):
     entity_client = client
     if not isinstance(entity, Chat):
@@ -150,7 +150,6 @@ async def get_entity(client, entity):
                 entity_client = kp
     return entity, entity_client
 
-
 SUDO_USERS = list(SUDO_USERS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
@@ -159,16 +158,18 @@ TIGER_USERS = list(TIGER_USERS)
 SPAMMERS = list(SPAMMERS)
 
 # Load at end to ensure all prev variables have been set
+# pylint: disable=C0413
 from YuiiDev.modules.helper_funcs.handlers import CustomCommandHandler
 
 if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
     tg.CommandHandler = CustomCommandHandler
 
 
+# pylint: disable=W0613
 def spamfilters(text, user_id, chat_id):
     # print("{} | {} | {}".format(text, user_id, chat_id))
-    if int(user_id) in SPAMMERS:
-        print("This user is a spammer!")
-        return True
-    else:
+    if int(user_id) not in SPAMMERS:
         return False
+
+    print("This user is a spammer!")
+    return True

@@ -6,14 +6,14 @@ import json
 import time
 import csv
 import os
+import ast
 
 from telegram.error import BadRequest, TelegramError, Unauthorized
 from telegram import (
     ParseMode,
     Chat,
     User,
-    MessageEntity,
-    InlineKeyboardMarkup,
+    MessageEboardMarkup,
     InlineKeyboardButton,
     ChatAction,
 )
@@ -36,9 +36,7 @@ from YuiiDev.modules.helper_funcs.extraction import (
 )
 from YuiiDev.modules.helper_funcs.string_handling import markdown_parser
 from YuiiDev.modules.disable import DisableAbleCommandHandler
-
 import YuiiDev.modules.sql.feds_sql as sql
-
 from YuiiDev.modules.helper_funcs.alternate import (
     send_message,
     typing_action,
@@ -49,15 +47,11 @@ from YuiiDev.modules.helper_funcs.alternate import (
 # Federation by MrYacha 2018-2019
 # Federation rework by Mizukito Akito 2019
 # Federation update v2 by Ayra Hikari 2019
-#
 # Time spended on feds = 10h by #MrYacha
 # Time spended on reworking on the whole feds = 22+ hours by @peaktogoo
 # Time spended on updating version to v2 = 26+ hours by @AyraHikari
-#
 # Total spended for making this features is 68+ hours
-
 # log.info("Original federation module by MrYacha, reworked by Mizukito Akito (@peaktogoo) on Telegram.")
-
 # TODO: Fix Loads of code duplication
 
 FBAN_ERRORS = {
@@ -259,7 +253,7 @@ def join_fed(update, context):
 
         get_fedlog = sql.get_fed_log(args[0])
         if get_fedlog:
-            if eval(get_fedlog):
+            if ast.literal_eval(get_fedlog):
                 context.bot.send_message(
                     get_fedlog,
                     "Chat *{}* has joined the federation *{}*".format(
@@ -294,7 +288,7 @@ def leave_fed(update, context):
         if sql.chat_leave_fed(chat.id) is True:
             get_fedlog = sql.get_fed_log(fed_id)
             if get_fedlog:
-                if eval(get_fedlog):
+                if ast.literal_eval(get_fedlog):
                     context.bot.send_message(
                         get_fedlog,
                         "Chat *{}* has left the federation *{}*".format(
@@ -352,7 +346,7 @@ def user_join_fed(update, context):
         getuser = sql.search_user_in_fed(fed_id, user_id)
         fed_id = sql.get_fed_id(chat.id)
         info = sql.get_fed_info(fed_id)
-        get_owner = eval(info["fusers"])["owner"]
+        get_owner = ast.literal_eval(info["fusers"])["owner"]
         get_owner = context.bot.get_chat(get_owner).id
         if user_id == get_owner:
             update.effective_message.reply_text(
@@ -1213,7 +1207,7 @@ def set_frules(update, context):
         getfed = sql.get_fed_info(fed_id)
         get_fedlog = sql.get_fed_log(fed_id)
         if get_fedlog:
-            if eval(get_fedlog):
+            if ast.literal_eval(get_fedlog):
                 context.bot.send_message(
                     get_fedlog,
                     "*{}* has changed federation rules for fed *{}*".format(
@@ -1722,7 +1716,7 @@ def fed_import_bans(update, context):
                 text += " {} Failed to import.".format(failed)
             get_fedlog = sql.get_fed_log(fed_id)
             if get_fedlog:
-                if eval(get_fedlog):
+                if ast.literal_eval(get_fedlog):
                     teks = "Fed *{}* has successfully imported data. {} banned.".format(
                         getfed["fname"], success
                     )
@@ -1798,7 +1792,7 @@ def fed_import_bans(update, context):
                 text += " {} Failed to import.".format(failed)
             get_fedlog = sql.get_fed_log(fed_id)
             if get_fedlog:
-                if eval(get_fedlog):
+                if ast.literal_eval(get_fedlog):
                     teks = "Fed *{}* has successfully imported data. {} banned.".format(
                         getfed["fname"], success
                     )
@@ -2233,7 +2227,7 @@ def is_user_fed_owner(fed_id, user_id):
     getsql = sql.get_fed_info(fed_id)
     if getsql is False:
         return False
-    getfedowner = eval(getsql["fusers"])
+    getfedowner = ast.literal_eval(getsql["fusers"])
     if getfedowner == None or getfedowner == False:
         return False
     getfedowner = getfedowner["owner"]
@@ -2339,25 +2333,18 @@ FED_SET_RULES_HANDLER = CommandHandler("setfrules", set_frules, pass_args=True, 
 FED_GET_RULES_HANDLER = CommandHandler("frules", get_frules, pass_args=True, run_async=True)
 FED_CHAT_HANDLER = CommandHandler("chatfed", fed_chat, pass_args=True, run_async=True)
 FED_ADMIN_HANDLER = CommandHandler("fedadmins", fed_admin, pass_args=True, run_async=True)
-FED_USERBAN_HANDLER = CommandHandler(
-    "fbanlist", fed_ban_list, pass_args=True, pass_chat_data=True, run_async=True
-)
+FED_USERBAN_HANDLER = CommandHandler("fbanlist", fed_ban_list, pass_args=True, pass_chat_data=True, run_async=True)
 FED_NOTIF_HANDLER = CommandHandler("fednotif", fed_notif, pass_args=True, run_async=True)
 FED_CHATLIST_HANDLER = CommandHandler("fedchats", fed_chats, pass_args=True, run_async=True)
 # FED_IMPORTBAN_HANDLER = CommandHandler( "importfbans", fed_import_bans, pass_chat_data=True, run_async=True)
-FEDSTAT_USER = DisableAbleCommandHandler(
-    ["fedstat", "fbanstat"], fed_stat_user, pass_args=True, run_async=True
-)
+FEDSTAT_USER = DisableAbleCommandHandler(["fedstat", "fbanstat"], fed_stat_user, pass_args=True, run_async=True)
 SET_FED_LOG = CommandHandler("setfedlog", set_fed_log, pass_args=True, run_async=True)
 UNSET_FED_LOG = CommandHandler("unsetfedlog", unset_fed_log, pass_args=True, run_async=True)
 SUBS_FED = CommandHandler("subfed", subs_feds, pass_args=True, run_async=True)
 UNSUBS_FED = CommandHandler("unsubfed", unsubs_feds, pass_args=True, run_async=True)
 MY_SUB_FED = CommandHandler("fedsubs", get_myfedsubs, pass_args=True, run_async=True)
 MY_FEDS_LIST = CommandHandler("myfeds", get_myfeds_list, run_async=True)
-
-DELETEBTN_FED_HANDLER = CallbackQueryHandler(
-    del_fed_button, pattern=r"rmfed_", run_async=True
-)
+DELETEBTN_FED_HANDLER = CallbackQueryHandler(del_fed_button, pattern=r"rmfed_", run_async=True)
 
 dispatcher.add_handler(NEW_FED_HANDLER)
 dispatcher.add_handler(DEL_FED_HANDLER)
@@ -2384,9 +2371,6 @@ dispatcher.add_handler(SUBS_FED)
 dispatcher.add_handler(UNSUBS_FED)
 dispatcher.add_handler(MY_SUB_FED)
 dispatcher.add_handler(MY_FEDS_LIST)
-
 dispatcher.add_handler(DELETEBTN_FED_HANDLER)
-
 dispatcher.add_handler(MY_FEDS_LIST)
-
 dispatcher.add_handler(DELETEBTN_FED_HANDLER)

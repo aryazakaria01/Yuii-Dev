@@ -26,12 +26,12 @@ from datetime import datetime
 
 from pyrogram import filters
 
-from wbb import app
-from wbb.core.decorators.errors import capture_err
-from wbb.utils.dbfunctions import get_couple, save_couple
+from YuiiDev import app
+from YuiiDev.core.decorators.errors import capture_err
+from YuiiDev.utils.dbfunctions import get_couple, save_couple
 
 __MODULE__ = "Shippering"
-__HELP__ = "/detect_gay - To Choose Couple Of The Day"
+__HELP__ = "/couple - To Choose Couple Of The Day"
 
 
 # Date and time
@@ -57,7 +57,7 @@ today = str(dt()[0])
 tomorrow = str(dt_tom())
 
 
-@app.on_message(filters.command("detect_gay") & ~filters.edited)
+@app.on_message(filters.command("couple") & ~filters.edited)
 @capture_err
 async def couple(_, message):
     if message.chat.type == "private":

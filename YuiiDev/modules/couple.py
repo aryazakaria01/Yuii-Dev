@@ -5,7 +5,7 @@ from datetime import datetime
 
 from pyrogram import filters
 
-from YuiiDev import app
+from YuiiDev import kp as app
 from YuiiDev.core.decorators.errors import capture_err
 from YuiiDev.utils.dbfunctions import get_couple, save_couple
 

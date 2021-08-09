@@ -4,7 +4,7 @@ import textwrap
 from PIL import Image, ImageFont, ImageDraw
 from YuiiDev import dispatcher
 from YuiiDev import telethn as bot
-#from YuiiDev import pbot as yuii
+#from YuiiDev import kp as pbot
 from YuiiDev.events import register as yuii
 
 

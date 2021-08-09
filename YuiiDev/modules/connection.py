@@ -19,7 +19,7 @@ user_admin = chat_status.user_admin
 
 @user_admin
 @typing_action
-def allow_connections(update, context) -> str:
+def allow_connections(update: Update, context: CallbackContext) -> str:
 
     chat = update.effective_chat
     args = context.args
@@ -66,7 +66,7 @@ def allow_connections(update, context) -> str:
 
 
 @typing_action
-def connection_chat(update, context):
+def connection_chat(update: Update, context: CallbackContext):
 
     chat = update.effective_chat
     user = update.effective_user
@@ -90,7 +90,7 @@ def connection_chat(update, context):
 
 
 @typing_action
-def connect_chat(update, context):
+def connect_chat(update: Update, context: CallbackContext):
 
     chat = update.effective_chat
     user = update.effective_user
@@ -249,7 +249,7 @@ def connect_chat(update, context):
             )
 
 
-def disconnect_chat(update, context):
+def disconnect_chat(update: Update, context: CallbackContext):
 
     if update.effective_chat.type == "private":
         disconnection_status = sql.disconnect(update.effective_message.from_user.id)
@@ -319,7 +319,7 @@ CONN_HELP = """
  • More in future!"""
 
 
-def help_connect_chat(update, context):
+def help_connect_chat(update: Update, context: CallbackContext):
 
     args = context.args
 
@@ -330,7 +330,7 @@ def help_connect_chat(update, context):
         send_message(update.effective_message, CONN_HELP, parse_mode="markdown")
 
 
-def connect_button(update, context):
+def connect_button(update: Update, context: CallbackContext):
 
     query = update.callback_query
     chat = update.effective_chat
@@ -391,7 +391,7 @@ from YuiiDev.modules.language import gs
 def get_help(chat):
     return gs(chat, "connections_help")
 
-CONNECT_CHAT_HANDLER = CommandHandler("connect", connect_chat, pass_args=True)
+CONNECT_CHAT_HANDLER = CommandHandler("connect", connect_chat, pass_args=True, run_async=True)
 CONNECTION_CHAT_HANDLER = CommandHandler("connection", connection_chat, run_async=True)
 DISCONNECT_CHAT_HANDLER = CommandHandler("disconnect", disconnect_chat, run_async=True)
 ALLOW_CONNECTIONS_HANDLER = CommandHandler(

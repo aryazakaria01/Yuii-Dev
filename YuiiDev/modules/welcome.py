@@ -46,7 +46,6 @@ from telegram.ext import (
     CommandHandler,
     Filters,
     MessageHandler,
-    run_async,
     ChatMemberHandler,
 )
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
@@ -80,9 +79,6 @@ VERIFIED_USER_WAITLIST = {}
 def extract_status_change(
     chat_member_update: ChatMemberUpdated,
 ) -> Optional[Tuple[bool, bool]]:
-    """Takes a ChatMemberUpdated instance and extracts whether the 'old_chat_member' was a member
-    of the chat and whether the 'new_chat_member' is a member of the chat. Returns None, if
-    the status didn't change."""
     status_change = chat_member_update.difference().get("status")
     old_is_member, new_is_member = chat_member_update.difference().get(
         "is_member", (None, None)
@@ -127,7 +123,7 @@ def send(update, message, keyboard, backup_message):
             reply_to_message_id=reply,
         )
     except BadRequest as excp:
-        if excp.message == "Reply message not found":
+        if excp.message == "Replied message not found":
             msg = update.effective_chat.send_message(
                 message,
                 parse_mode=ParseMode.MARKDOWN,
@@ -214,7 +210,7 @@ def new_member(update: Update, context: CallbackContext):
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_chat.send_message(
-                    "Oh hi, my creator.", reply_to_message_id=reply
+                    text="Oh hi, my creator."
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
@@ -225,41 +221,37 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
                 update.effective_chat.send_message(
-                    "Whoa! A member of the Yuii Chan Club just joined!",
-                    reply_to_message_id=reply,
+                    text="Whoa! A member of the Yuii Chan Club just joined!"
                 )
 
             # Welcome Sudos
             elif new_mem.id in SUDO_USERS:
                 update.effective_chat.send_message(
-                    "Huh! A Sudo User just joined! Stay Alert!",
-                    reply_to_message_id=reply,
+                    text="Huh! A Sudo User just joined! Stay Alert!"
                 )
 
             # Welcome Support
             elif new_mem.id in SUPPORT_USERS:
                 update.effective_chat.send_message(
-                    "Huh! Someone with a Support level just joined!",
-                    reply_to_message_id=reply,
+                    text="Huh! Someone with a Support level just joined!"
                 )
 
             # Welcome Whitelisted
             elif new_mem.id in TIGER_USERS:
                 update.effective_chat.send_message(
-                    "Oof! A Tiger User just joined!", reply_to_message_id=reply
+                    text="Oof! A Tiger User just joined!"
                 )
 
             # Welcome TIGER_USERS
             elif new_mem.id in WHITELIST_USERS:
                 update.effective_chat.send_message(
-                    "Oof! A Whitelisted User joined!", reply_to_message_id=reply
+                    text="Oof! A Whitelisted User joined!"
                 )
 
             # Welcome yourself
             elif new_mem.id == bot.id:
                 update.effective_chat.send_message(
-                    "Thanks for adding me! Join @yuiichansupport for support.",
-                    reply_to_message_id=reply,
+                    text="Thanks for adding me! Join @yuiichansupport for support."
                 )
 
             else:
@@ -283,7 +275,7 @@ def new_member(update: Update, context: CallbackContext):
                         fullname = escape_markdown(f"{first_name} {new_mem.last_name}")
                     else:
                         fullname = escape_markdown(first_name)
-                    count = chat.get_members_count()
+                    count = chat.get_member_count()
                     mention = mention_markdown(new_mem.id, escape_markdown(first_name))
                     if new_mem.username:
                         username = "@" + escape_markdown(new_mem.username)
@@ -382,7 +374,7 @@ def new_member(update: Update, context: CallbackContext):
                             }
                         )
                     new_join_mem = f"[{escape_markdown(new_mem.first_name)}](tg://user?id={user.id})"
-                    message = update.effective_chat.send_message(
+                    message = bot.send_message(
                         f"{new_join_mem}, click the button below to prove you're human.\nYou have 120 seconds.",
                         reply_markup=InlineKeyboardMarkup(
                             [
@@ -556,7 +548,7 @@ def left_member(update: Update, context: CallbackContext):
                     fullname = escape_markdown(f"{first_name} {left_mem.last_name}")
                 else:
                     fullname = escape_markdown(first_name)
-                count = chat.get_members_count()
+                count = chat.get_member_count()
                 mention = mention_markdown(left_mem.id, first_name)
                 if left_mem.username:
                     username = "@" + escape_markdown(left_mem.username)
@@ -1067,7 +1059,9 @@ def get_help(chat):
     return gs(chat, "greetings_help")
 
 
-NEW_MEM_HANDLER = ChatMemberHandler(new_member, ChatMemberHandler.CHAT_MEMBER)
+NEW_MEM_HANDLER = ChatMemberHandler(
+    new_member, ChatMemberHandler.CHAT_MEMBER, run_async=True
+)
 LEFT_MEM_HANDLER = MessageHandler(
     Filters.status_update.left_chat_member, left_member, run_async=True
 )

@@ -4,8 +4,8 @@
 
 
 from fastapi import FastAPI
-import tg_bot.modules.sql.antispam_sql as sql1
-import tg_bot.modules.sql.blacklistusers_sql as sql2
+import YuiiDev.modules.sql.antispam_sql as sql1
+import YuiiDev.modules.sql.blacklistusers_sql as sql2
 from telegram import __version__ as v
 
 app = FastAPI()

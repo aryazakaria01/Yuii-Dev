@@ -25,7 +25,7 @@ from telegram.ext import (
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
-from tg_bot import (
+from YuiiDev import (
     dispatcher,
     updater,
     TOKEN,
@@ -42,13 +42,13 @@ from tg_bot import (
 )
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from tg_bot.modules import ALL_MODULES
-from tg_bot.modules.helper_funcs.chat_status import is_user_admin
-from tg_bot.modules.helper_funcs.misc import paginate_modules
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.afk import get_readable_time
-from tg_bot.modules.notes import private_get, lst_notes
-from tg_bot.modules.language import gs
+from YuiiDev.modules import ALL_MODULES
+from YuiiDev.modules.helper_funcs.chat_status import is_user_admin
+from YuiiDev.modules.helper_funcs.misc import paginate_modules
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.afk import get_readable_time
+from YuiiDev.modules.notes import private_get, lst_notes
+from YuiiDev.modules.language import gs
 
 PM_START_TEXT = """
 ──「 [YuiiChan](https://telegra.ph/file/b89daeab2dd9c5c299dc4.jpg) 」──
@@ -83,7 +83,7 @@ And the following:
 
 
 Yuii_IMG = "https://telegra.ph/file/b89daeab2dd9c5c299dc4.jpg"
-
+#Yuii_VID = fill with your telegraph video link
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -249,8 +249,11 @@ def start(update: Update, context: CallbackContext):
                 ),
             )
     else:
-        update.effective_message.reply_text(
-            "Well I'm alive!\n<b>Working since:</b> <code>{}</code>".format(uptime),
+        # change reply_photo to reply_video then change Yuii_IMG to Yuii_VID
+        # if u want Yuii send a video start message on groups.
+        update.effective_message.reply_photo(
+            Yuii_IMG, #Yuii_VID
+            caption="Well I'm alive!\n<b>Working since:</b> <code>{}</code>\Support @YuiiSupport".format(uptime),
             parse_mode=ParseMode.HTML,
         )
 

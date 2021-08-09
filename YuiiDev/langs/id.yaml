@@ -2,6 +2,7 @@
 language: "Indonesia 🇮"
 # name of people(s) who worked on this translation
 authors: "@Yoga_CIC"
+improved: "@Anomaliii"
 
 # languages
 curr_chat_lang: "Halo. Kamu menggunakan bahasa {}, pilih salah satu yang ingin anda gunakan :)"
@@ -11,9 +12,9 @@ set_chat_lang: "Selamat, {} bahasa berhasil diganti!"
 pm_start_text: |
    Halo {}, nama saya adalah {}!
    Saya adalah robot manager grup dengan tema anime dan beberapa fitur canggih ;)
-   Coba tombol dibawah untuk mengetahui fungsi saya.
+   Tekan tombol dibawah untuk mengetahui fungsi saya.
 
-grp_start_text: "Ya saya online!"
+grp_start_text: "Ya, saya online!"
 
 pm_help_text: |
    Halo disana! Nama saya *Yuii*.*.
@@ -219,7 +220,7 @@ antispam_help: |
      SpamWatch menyimpan daftar larangan spambot, troll, spammer bitcoin, dan karakter jahat yang terus diperbarui.
      Terus membantu melarang spammer dari grup Anda secara otomatis Jadi, Anda tidak perlu khawatir tentang spammer menyerbu grup Anda.
      *Catatan:* Pengguna dapat mengajukan banding atas larangan spamwatch di @SpamwatchSupport
-     *Apa itu perlindungan Spam?*
+     *Apa itu SpamProtection?*
      SpamProtection adalah layanan antispam AI baru yang memastikan obrolan Anda bebas dari robot spam, scammer, dan pedofil.
      Menggunakan Mesin Buatan Coffehouse @​​Intellivoid. Setiap larangan diperiksa oleh orang yang benar-benar dapat dipercaya sebelum diselesaikan.
 
@@ -400,5 +401,5 @@ nlp_help: |
        memproses pesan obrolan dan mendeteksi spam.
        Ini berada di bawah NLP Coffehouse. Belajar lebih tentang
        itu [di sini](https://docs.intellivoid.net/coffeehouse/v1/nlp/spam_prediction/chatroom)
-       *Memerintah:*
+       *Perintah:*
         • `/nlpstat <on/off/yes/no>`*:* aktifkan NLP di obrolan Anda.

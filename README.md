@@ -9,7 +9,7 @@
 [![Issues](https://img.shields.io/github/issues/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/issues)
 [![Forks](https://img.shields.io/github/forks/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/network/members)
 [![Stars](https://img.shields.io/github/stars/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/stargazers)
-[![LICENSE](https://img.shields.io/github/license/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/license)
+[![LICENSE](https://img.shields.io/github/license/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/blob/main/LICENSE)
 [![Contributors](https://img.shields.io/github/contributors/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/graphs/contributors)
 [![Repository Size](https://img.shields.io/github/repo-size/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/archive/refs/heads/main.zip)</br>
 ![CodeFactor](https://www.codefactor.io/repository/github/aryazakaria01/yuii-dev/badge?s=7463f484136e45003925cb3d056a889ad02cc11c)

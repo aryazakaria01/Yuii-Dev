@@ -7,7 +7,12 @@ from typing import Optional, List
 from sys import argv
 import requests
 from pyrogram import idle, Client
-from telegram import Update, ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import (
+    Update, 
+    ParseMode,
+    InlineKeyboardMarkup,
+    InlineKeyboardButton,
+)
 from telegram.error import (
     TelegramError,
     Unauthorized,
@@ -343,13 +348,11 @@ def help_button(update: Update, context: CallbackContext):
         context.bot.answer_callback_query(query.id)
         query.message.delete()
     except BadRequest as excp:
-        if excp.message == "Message is not modified":
-            pass
-        elif excp.message == "Query_id_invalid":
-            pass
-        elif excp.message == "Message can't be deleted":
-            pass
-        else:
+        if excp.message not in [
+            "Message is not modified",
+            "Query_id_invalid",
+            "Message can't be deleted",
+        ]:
             log.exception("Exception in help buttons. %s", str(query.data))
 
 
@@ -533,13 +536,11 @@ def settings_button(update: Update, context: CallbackContext):
         bot.answer_callback_query(query.id)
         query.message.delete()
     except BadRequest as excp:
-        if excp.message == "Message is not modified":
-            pass
-        elif excp.message == "Query_id_invalid":
-            pass
-        elif excp.message == "Message can't be deleted":
-            pass
-        else:
+        if excp.message not in [
+            "Message is not modified",
+            "Query_id_invalid",
+            "Message can't be deleted",
+        ]:
             log.exception("Exception in settings buttons. %s", str(query.data))
 
 
@@ -624,15 +625,15 @@ def migrate_chats(update: Update, context: CallbackContext):
 def main():
     """#TODO"""
 
-    test_handler = CommandHandler("test", test, run_async=True)
-    start_handler = CommandHandler("start", start, pass_args=True, run_async=True)
+    test_handler = DisableAbleCommandHandler("test", test, run_async=True)
+    start_handler = DisableAbleCommandHandler("start", start, pass_args=True, run_async=True)
 
-    help_handler = CommandHandler("help", get_help, run_async=True)
+    help_handler = DisableAbleCommandHandler("help", get_help, run_async=True)
     help_callback_handler = CallbackQueryHandler(
         help_button, pattern=r"help_", run_async=True
     )
 
-    settings_handler = CommandHandler("settings", get_settings, run_async=True)
+    settings_handler = DisableAbleCommandHandler("settings", get_settings, run_async=True)
     settings_callback_handler = CallbackQueryHandler(
         settings_button, pattern=r"stngs_", run_async=True
     )
@@ -666,7 +667,12 @@ def main():
         log.info(
             f"Yuii started, Using long polling. | BOT: [@{dispatcher.bot.username}]"
         )
-        updater.start_polling(allowed_updates=Update.ALL_TYPES, timeout=15, read_latency=4, drop_pending_updates=True)
+        updater.start_polling(
+            allowed_updates=Update.ALL_TYPES, 
+            timeout=15, 
+            read_latency=4, 
+            drop_pending_updates=True,
+        )
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
     else:

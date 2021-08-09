@@ -111,7 +111,6 @@ updater = tg.Updater(
     persistence=PostgresPersistence(SESSION),
 )
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
-pbot = Client("yuiipbot", api_id=APP_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
 kp = Client(

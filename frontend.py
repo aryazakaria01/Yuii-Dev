@@ -1,7 +1,7 @@
 from dearpygui.core import *
 from dearpygui.simple import *
 from platform import python_version
-from tg_bot.__main__ import STATS
+from YuiiDev.__main__ import STATS
 
 try:
     from telegram import __version__ as pver

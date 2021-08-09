@@ -13,8 +13,8 @@ from telegram import TelegramError, Update
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
-from tg_bot import dispatcher
-from tg_bot.modules.disable import DisableAbleCommandHandler
+from YuiiDev import dispatcher
+from YuiiDev.modules.disable import DisableAbleCommandHandler
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
 
@@ -389,6 +389,7 @@ def makepack_internal(
 ):
     name = user.first_name
     name = name[:50]
+    buname = context.bot.username
     try:
         extra_version = ""
         if packnum > 0:
@@ -397,7 +398,7 @@ def makepack_internal(
             success = context.bot.create_new_sticker_set(
                 user.id,
                 packname,
-                f"{name}s kang pack" + extra_version,
+                f"{name}s kang pack by {buname}" + extra_version,
                 png_sticker=png_sticker,
                 emojis=emoji,
             )
@@ -405,7 +406,7 @@ def makepack_internal(
             success = context.bot.create_new_sticker_set(
                 user.id,
                 packname,
-                f"{name}s animated kang pack" + extra_version,
+                f"{name}s animated kang pack by {buname}" + extra_version,
                 tgs_sticker=tgs_sticker,
                 emojis=emoji,
             )

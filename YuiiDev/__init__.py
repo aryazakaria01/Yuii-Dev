@@ -101,7 +101,7 @@ else:
         log.warning("Can't connect to SpamWatch!")
 
 
-from tg_bot.modules.sql import SESSION
+from YuiiDev.modules.sql import SESSION
 
 
 updater = tg.Updater(
@@ -111,6 +111,7 @@ updater = tg.Updater(
     persistence=PostgresPersistence(SESSION),
 )
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
+pbot = Client("yuiipbot", api_id=APP_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
 kp = Client(
@@ -159,7 +160,7 @@ TIGER_USERS = list(TIGER_USERS)
 SPAMMERS = list(SPAMMERS)
 
 # Load at end to ensure all prev variables have been set
-from tg_bot.modules.helper_funcs.handlers import CustomCommandHandler
+from YuiiDev.modules.helper_funcs.handlers import CustomCommandHandler
 
 if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
     tg.CommandHandler = CustomCommandHandler

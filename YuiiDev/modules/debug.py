@@ -47,7 +47,7 @@ async def i_do_nothing_yes(event):
                 )
 
 
-DEBUG_HANDLER = CommandHandler("debug", debug)
+DEBUG_HANDLER = CommandHandler("debug", debug, run_async=True)
 dispatcher.add_handler(DEBUG_HANDLER)
 
 __mod_name__ = "Debug"

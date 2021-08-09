@@ -438,7 +438,7 @@ PIN_HANDLER = CommandHandler(
 UNPIN_HANDLER = CommandHandler(
     "unpin", unpin, filters=Filters.chat_type.groups, run_async=True
 )
-ADMINLIST_HANDLER = DisableAbleCommandHandler(["admins", "adminlist"], adminlist)
+ADMINLIST_HANDLER = DisableAbleCommandHandler(["admins", "adminlist"], adminlist, run_async=True)
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite, run_async=True)
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote, run_async=True)
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, run_async=True)

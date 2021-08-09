@@ -5,13 +5,13 @@
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/aryazakaria01)</br>
 
 
-[![Python Version](https://img.shields.io/badge/python-3.9.6-green?style=for-the-badge&logo=appveyor)](https://docs.python.org)
-[![Issues](https://img.shields.io/github/issues/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/issues)
-[![Forks](https://img.shields.io/github/forks/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/network/members)
-[![Stars](https://img.shields.io/github/stars/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/stargazers)
-[![LICENSE](https://img.shields.io/github/license/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/blob/main/LICENSE)
-[![Contributors](https://img.shields.io/github/contributors/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/graphs/contributors)
-[![Repository Size](https://img.shields.io/github/repo-size/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=appveyor)](https://github.com/aryazakaria01/Yuii-Dev/archive/refs/heads/main.zip)</br>
+[![Python Version](https://img.shields.io/badge/python-3.9.6-green?style=for-the-badge&logo=python)](https://docs.python.org)
+[![Issues](https://img.shields.io/github/issues/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/issues)
+[![Forks](https://img.shields.io/github/forks/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/network/members)
+[![Stars](https://img.shields.io/github/stars/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/stargazers)
+[![LICENSE](https://img.shields.io/github/license/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/blob/main/LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/graphs/contributors)
+[![Repository Size](https://img.shields.io/github/repo-size/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/archive/refs/heads/main.zip)</br>
 ![CodeFactor](https://www.codefactor.io/repository/github/aryazakaria01/yuii-dev/badge?s=7463f484136e45003925cb3d056a889ad02cc11c)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c524e61cd8640e79b80d406eda8754b)](https://www.codacy.com/gh/codacy/codacy-coverage-reporter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-coverage-reporter&amp;utm_campaign=Badge_Grade)
 

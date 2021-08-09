@@ -40,7 +40,7 @@ for handler_list in dispatcher.handlers:
         if any(isinstance(handler, cmd_handler) for cmd_handler in CommandHandlerList):
             command_list += handler.command
 
-@run_async
+
 def clean_blue_text_must_click(update: Update, context: CallbackContext):
     bot = context.bot
     chat = update.effective_chat
@@ -62,7 +62,7 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
                 if command[0] not in command_list:
                     message.delete()
 
-@run_async
+
 @connection_status
 @bot_can_delete
 @user_admin
@@ -97,7 +97,7 @@ def set_blue_text_must_click(update: Update, context: CallbackContext):
         )
         message.reply_text(reply, parse_mode=ParseMode.HTML)
 
-@run_async
+
 @user_admin
 def add_bluetext_ignore(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -118,7 +118,7 @@ def add_bluetext_ignore(update: Update, context: CallbackContext):
         reply = "No command supplied to be ignored."
         message.reply_text(reply)
 
-@run_async
+
 @user_admin
 def remove_bluetext_ignore(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -141,7 +141,7 @@ def remove_bluetext_ignore(update: Update, context: CallbackContext):
         reply = "No command supplied to be unignored."
         message.reply_text(reply)
 
-@run_async
+
 @user_admin
 def add_bluetext_ignore_global(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -161,7 +161,7 @@ def add_bluetext_ignore_global(update: Update, context: CallbackContext):
         reply = "No command supplied to be ignored."
         message.reply_text(reply)
 
-@run_async
+
 @dev_plus
 def remove_bluetext_ignore_global(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -181,7 +181,7 @@ def remove_bluetext_ignore_global(update: Update, context: CallbackContext):
         reply = "No command supplied to be unignored."
         message.reply_text(reply)
 
-@run_async
+
 @dev_plus
 def bluetext_ignore_list(update: Update, context: CallbackContext):
 

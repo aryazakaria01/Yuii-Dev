@@ -1,6 +1,6 @@
-import tg_bot.modules.sql.welcome_sql as sql
+import YuiiDev.modules.sql.welcome_sql as sql
 from telethon import events
-from tg_bot import telethn
+from YuiiDev import telethn
 
 @telethn.on(events.ChatAction)
 async def delete_service(event):

@@ -1,14 +1,14 @@
-tg_bot/config.py
-tg_bot/*.session
-tg_bot/*.session-journal
-tg_bot/config.ini
+YuiiDev/config.py
+YuiiDev/*.session
+YuiiDev/*.session-journal
+YuiiDev/config.ini
 *.pyc
 .idea/
 .project
 .pydevproject
 .directory
 .vscode
-tg_bot/modules/helper_funcs/temp.txt
+YuiiDev/modules/helper_funcs/temp.txt
 start-3.6.bat
 *.session
 kangsticker.png
@@ -24,4 +24,4 @@ config.ini
 log.txt
 shell_output.txt
 .vs
-tg_bot/elevated_users.json
+YuiiDev/elevated_users.json

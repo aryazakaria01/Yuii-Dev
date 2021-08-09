@@ -7,21 +7,21 @@ from telegram.ext import CommandHandler, MessageHandler, Filters
 from telegram.utils.helpers import mention_html
 
 from alphabet_detector import AlphabetDetector
-from tg_bot.modules.sql.approve_sql import is_approved
-import tg_bot.modules.sql.locks_sql as sql
-from tg_bot import dispatcher, SUDO_USERS, log
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.chat_status import (
+from YuiiDev.modules.sql.approve_sql import is_approved
+import YuiiDev.modules.sql.locks_sql as sql
+from YuiiDev import dispatcher, SUDO_USERS, log
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.chat_status import (
     can_delete,
     is_user_admin,
     user_not_admin,
     is_bot_admin,
     user_admin,
 )
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.connection import connected
+from YuiiDev.modules.log_channel import loggable
+from YuiiDev.modules.connection import connected
 
-from tg_bot.modules.helper_funcs.alternate import send_message, typing_action
+from YuiiDev.modules.helper_funcs.alternate import send_message, typing_action
 
 ad = AlphabetDetector()
 
@@ -546,7 +546,7 @@ def __chat_settings__(chat_id, user_id):
     return build_lock_message(chat_id)
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "locks_help")

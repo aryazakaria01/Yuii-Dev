@@ -3,9 +3,9 @@ import time
 import requests
 from datetime import datetime
 from io import BytesIO
-from tg_bot.modules.sql.users_sql import get_user_com_chats
-import tg_bot.modules.sql.antispam_sql as sql
-from tg_bot import (
+from YuiiDev.modules.sql.users_sql import get_user_com_chats
+import YuiiDev.modules.sql.antispam_sql as sql
+from YuiiDev import (
     DEV_USERS,
     GBAN_LOGS,
     OWNER_ID,
@@ -18,19 +18,19 @@ from tg_bot import (
     dispatcher,
     log,
 )
-from tg_bot.modules.helper_funcs.chat_status import (
+from YuiiDev.modules.helper_funcs.chat_status import (
     is_user_admin,
     support_plus,
     user_admin,
 )
-from tg_bot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from tg_bot.modules.helper_funcs.misc import send_to_list
-from tg_bot.modules.sql.users_sql import get_all_chats
+from YuiiDev.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from YuiiDev.modules.helper_funcs.misc import send_to_list
+from YuiiDev.modules.sql.users_sql import get_all_chats
 from telegram import ParseMode, Update
 from telegram.error import BadRequest, TelegramError
 from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
-from tg_bot.modules.helper_funcs.chat_status import dev_plus
+from YuiiDev.modules.helper_funcs.chat_status import dev_plus
 from spamwatch.errors import (
     SpamWatchError,
     Error,
@@ -533,7 +533,7 @@ def __chat_settings__(chat_id, user_id):
     return f"This chat is enforcing *gbans*: `{sql.does_chat_gban(chat_id)}`."
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def get_help(chat):

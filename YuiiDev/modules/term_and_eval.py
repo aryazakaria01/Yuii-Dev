@@ -4,7 +4,7 @@ import os
 import re
 import subprocess
 from io import StringIO, BytesIO
-from tg_bot import kp, OWNER_ID, DEV_USERS
+from YuiiDev import kp, OWNER_ID, DEV_USERS
 from pyrogram import filters
 
 
@@ -114,11 +114,11 @@ async def terminal(client, message):
         output = None
     if output:
         if len(output) > 4096:
-            with open("tg_bot/output.txt", "w+") as file:
+            with open("YuiiDev/output.txt", "w+") as file:
                 file.write(output)
-            await client.send_document(message.chat.id, "tg_bot/output.txt", reply_to_message_id=message.message_id,
+            await client.send_document(message.chat.id, "YuiiDev/output.txt", reply_to_message_id=message.message_id,
                                     caption="`Output file`")
-            os.remove("tg_bot/output.txt")
+            os.remove("YuiiDev/output.txt")
             return
         await message.reply(f"**Output:**\n`{output}`", parse_mode='markdown')
     else:

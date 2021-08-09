@@ -4,9 +4,9 @@ from telegram import ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters
 from telegram.utils.helpers import mention_html, mention_markdown
-from tg_bot import SUDO_USERS, dispatcher
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.chat_status import (
+from YuiiDev import SUDO_USERS, dispatcher
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
     can_promote,
@@ -15,13 +15,13 @@ from tg_bot.modules.helper_funcs.chat_status import (
     ADMIN_CACHE,
 )
 
-from tg_bot.modules.helper_funcs.extraction import (
+from YuiiDev.modules.helper_funcs.extraction import (
     extract_user, 
     extract_user_and_text,
 )
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.helper_funcs.alternate import send_message
-from tg_bot.modules.language import gs
+from YuiiDev.modules.log_channel import loggable
+from YuiiDev.modules.helper_funcs.alternate import send_message
+from YuiiDev.modules.language import gs
 
 
 @connection_status

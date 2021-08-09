@@ -5,22 +5,22 @@ from telegram import ParseMode, Message
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler
 
-import tg_bot.modules.sql.notes_sql as sql
-from tg_bot import dispatcher, log, OWNER_ID
-from tg_bot.__main__ import DATA_IMPORT
-from tg_bot.modules.helper_funcs.chat_status import user_admin
+import YuiiDev.modules.sql.notes_sql as sql
+from YuiiDev import dispatcher, log, OWNER_ID
+from YuiiDev.__main__ import DATA_IMPORT
+from YuiiDev.modules.helper_funcs.chat_status import user_admin
 
-# from tg_bot.modules.rules import get_rules
-import tg_bot.modules.sql.rules_sql as rulessql
+# from YuiiDev.modules.rules import get_rules
+import YuiiDev.modules.sql.rules_sql as rulessql
 
-# from tg_bot.modules.sql import warns_sql as warnssql
-import tg_bot.modules.sql.blacklist_sql as blacklistsql
-from tg_bot.modules.sql import disable_sql as disabledsql
+# from YuiiDev.modules.sql import warns_sql as warnssql
+import YuiiDev.modules.sql.blacklist_sql as blacklistsql
+from YuiiDev.modules.sql import disable_sql as disabledsql
 
-# from tg_bot.modules.sql import cust_filters_sql as filtersql
-# import tg_bot.modules.sql.welcome_sql as welcsql
-import tg_bot.modules.sql.locks_sql as locksql
-from tg_bot.modules.connection import connected
+# from YuiiDev.modules.sql import cust_filters_sql as filtersql
+# import YuiiDev.modules.sql.welcome_sql as welcsql
+import YuiiDev.modules.sql.locks_sql as locksql
+from YuiiDev.modules.connection import connected
 
 
 @user_admin
@@ -338,7 +338,7 @@ def export_data(update, context):
     os.remove("YuiiChan{}.backup".format(chat_id))  # Cleaning file
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def get_help(chat):

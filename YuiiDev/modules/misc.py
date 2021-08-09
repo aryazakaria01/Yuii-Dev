@@ -10,7 +10,7 @@ from telegram.ext import CommandHandler, Filters, CallbackContext
 from telegram.utils.helpers import mention_html
 from subprocess import Popen, PIPE
 
-from tg_bot import (
+from YuiiDev import (
     dispatcher,
     OWNER_ID,
     SUDO_USERS,
@@ -22,12 +22,12 @@ from tg_bot import (
     sw,
     StartTime,
 )
-from tg_bot.__main__ import STATS, USER_INFO, TOKEN
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.chat_status import user_admin, sudo_plus
-from tg_bot.modules.helper_funcs.extraction import extract_user
-import tg_bot.modules.sql.users_sql as sql
-from tg_bot.modules.language import gs
+from YuiiDev.__main__ import STATS, USER_INFO, TOKEN
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.chat_status import user_admin, sudo_plus
+from YuiiDev.modules.helper_funcs.extraction import extract_user
+import YuiiDev.modules.sql.users_sql as sql
+from YuiiDev.modules.language import gs
 from telegram import __version__
 from psutil import cpu_percent, virtual_memory, disk_usage, boot_time
 import datetime

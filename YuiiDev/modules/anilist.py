@@ -9,8 +9,8 @@ from telegram import (
     InlineKeyboardMarkup,
     InlineKeyboardButton,
 )
-from tg_bot import dispatcher
-from tg_bot.modules.disable import DisableAbleCommandHandler
+from YuiiDev import dispatcher
+from YuiiDev.modules.disable import DisableAbleCommandHandler
 import requests
 import math
 import time
@@ -358,7 +358,7 @@ def manga(update: Update, context: CallbackContext):
             )
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def get_help(chat):

@@ -1,9 +1,9 @@
 from typing import Optional
 
-import tg_bot.modules.sql.rules_sql as sql
-from tg_bot import dispatcher
-from tg_bot.modules.helper_funcs.chat_status import user_admin
-from tg_bot.modules.helper_funcs.string_handling import markdown_parser
+import YuiiDev.modules.sql.rules_sql as sql
+from YuiiDev import dispatcher
+from YuiiDev.modules.helper_funcs.chat_status import user_admin
+from YuiiDev.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -113,7 +113,7 @@ def __migrate__(old_chat_id, new_chat_id):
 def __chat_settings__(chat_id, user_id):
     return f"This chat has had it's rules set: `{bool(sql.get_rules(chat_id))}`"
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "rules_help")

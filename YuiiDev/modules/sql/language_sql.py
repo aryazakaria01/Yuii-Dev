@@ -1,7 +1,7 @@
 import threading
 
 from sqlalchemy import Column, String, UnicodeText
-from tg_bot.modules.sql import SESSION, BASE
+from YuiiDev.modules.sql import SESSION, BASE
 
 
 class ChatLangs(BASE):

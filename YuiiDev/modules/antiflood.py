@@ -14,9 +14,9 @@ from telegram import (
     ChatPermissions,
 )
 
-from tg_bot import TIGER_USERS, WHITELIST_USERS, dispatcher
-from tg_bot.modules.sql.approve_sql import is_approved
-from tg_bot.modules.helper_funcs.chat_status import (
+from YuiiDev import TIGER_USERS, WHITELIST_USERS, dispatcher
+from YuiiDev.modules.sql.approve_sql import is_approved
+from YuiiDev.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     connection_status,
@@ -24,8 +24,8 @@ from tg_bot.modules.helper_funcs.chat_status import (
     user_admin,
     user_admin_no_reply,
 )
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.sql import antiflood_sql as sql
+from YuiiDev.modules.log_channel import loggable
+from YuiiDev.modules.sql import antiflood_sql as sql
 from telegram.error import BadRequest
 from telegram.ext import (
     CommandHandler,
@@ -35,17 +35,17 @@ from telegram.ext import (
     CallbackContext,
 )
 from telegram.utils.helpers import mention_html, escape_markdown
-from tg_bot import dispatcher
-from tg_bot.modules.helper_funcs.chat_status import (
+from YuiiDev import dispatcher
+from YuiiDev.modules.helper_funcs.chat_status import (
     is_user_admin,
     user_admin,
     can_restrict,
 )
-from tg_bot.modules.helper_funcs.string_handling import extract_time
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.sql import antiflood_sql as sql
-from tg_bot.modules.connection import connected
-from tg_bot.modules.helper_funcs.alternate import send_message
+from YuiiDev.modules.helper_funcs.string_handling import extract_time
+from YuiiDev.modules.log_channel import loggable
+from YuiiDev.modules.sql import antiflood_sql as sql
+from YuiiDev.modules.connection import connected
+from YuiiDev.modules.helper_funcs.alternate import send_message
 
 FLOOD_GROUP = 3
 
@@ -419,7 +419,7 @@ def __chat_settings__(chat_id, user_id):
     else:
         return "Antiflood has been set to`{}`.".format(limit)
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "antiflood_help")

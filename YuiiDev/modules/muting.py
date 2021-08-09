@@ -1,22 +1,22 @@
 import html
 from typing import Optional
 
-from tg_bot import log, TIGER_USERS, dispatcher
-from tg_bot.modules.helper_funcs.chat_status import (
+from YuiiDev import log, TIGER_USERS, dispatcher
+from YuiiDev.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     connection_status,
     is_user_admin,
     user_admin,
 )
-from tg_bot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from tg_bot.modules.helper_funcs.string_handling import extract_time
-from tg_bot.modules.log_channel import loggable
+from YuiiDev.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from YuiiDev.modules.helper_funcs.string_handling import extract_time
+from YuiiDev.modules.log_channel import loggable
 from telegram import Bot, Chat, ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.utils.helpers import mention_html
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:

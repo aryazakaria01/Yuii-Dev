@@ -1,6 +1,6 @@
 import requests
-from tg_bot import dispatcher
-from tg_bot.modules.disable import DisableAbleCommandHandler
+from YuiiDev import dispatcher
+from YuiiDev.modules.disable import DisableAbleCommandHandler
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
 

@@ -1,5 +1,5 @@
-from tg_bot.modules.helper_funcs.telethn import HIGHER_AUTH, telethn
-from tg_bot import SUPPORT_USERS, TIGER_USERS, WHITELIST_USERS
+from YuiiDev.modules.helper_funcs.telethn import HIGHER_AUTH, telethn
+from YuiiDev import SUPPORT_USERS, TIGER_USERS, WHITELIST_USERS
 from telethon.tl.types import ChannelParticipantsAdmins
 
 

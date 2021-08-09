@@ -1,8 +1,8 @@
 from random import randint
 
 import requests as r
-from tg_bot import WALL_API, dispatcher
-from tg_bot.modules.disable import DisableAbleCommandHandler
+from YuiiDev import WALL_API, dispatcher
+from YuiiDev.modules.disable import DisableAbleCommandHandler
 from telegram import Update
 from telegram.ext import CallbackContext
 

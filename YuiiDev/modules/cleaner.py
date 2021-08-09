@@ -1,14 +1,14 @@
 import html
 
-from tg_bot import ALLOW_EXCL, CustomCommandHandler, dispatcher
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.chat_status import (
+from YuiiDev import ALLOW_EXCL, CustomCommandHandler, dispatcher
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.chat_status import (
     bot_can_delete,
     connection_status,
     dev_plus,
     user_admin,
 )
-from tg_bot.modules.sql import cleaner_sql as sql
+from YuiiDev.modules.sql import cleaner_sql as sql
 from telegram import ParseMode, Update
 from telegram.ext import (
     CallbackContext,
@@ -212,7 +212,7 @@ def bluetext_ignore_list(update: Update, context: CallbackContext):
     message.reply_text(text, parse_mode=ParseMode.HTML)
     return
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "cleaner_help")

@@ -1,6 +1,6 @@
 from functools import wraps
 
-from tg_bot import (
+from YuiiDev import (
     DEL_CMDS,
     DEV_USERS,
     SUDO_USERS,

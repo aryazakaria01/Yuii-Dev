@@ -1,11 +1,11 @@
 import html
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot import dispatcher, SUDO_USERS
-from tg_bot.modules.helper_funcs.extraction import extract_user
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev import dispatcher, SUDO_USERS
+from YuiiDev.modules.helper_funcs.extraction import extract_user
 from telegram.ext import CallbackContext, CallbackQueryHandler, Filters
-import tg_bot.modules.sql.approve_sql as sql
-from tg_bot.modules.helper_funcs.chat_status import user_admin
-from tg_bot.modules.log_channel import loggable
+import YuiiDev.modules.sql.approve_sql as sql
+from YuiiDev.modules.helper_funcs.chat_status import user_admin
+from YuiiDev.modules.log_channel import loggable
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Update
 from telegram.utils.helpers import mention_html
 from telegram.error import BadRequest
@@ -185,7 +185,7 @@ def unapproveall_btn(update: Update, context: CallbackContext):
         if member.status == "member":
             query.answer("You need to be admin to do this.")
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "approve_help")

@@ -1,7 +1,7 @@
 import threading
 
-from tg_bot import dispatcher
-from tg_bot.modules.sql import BASE, SESSION
+from YuiiDev import dispatcher
+from YuiiDev.modules.sql import BASE, SESSION
 from sqlalchemy import (
     Column,
     ForeignKey,

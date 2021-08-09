@@ -12,7 +12,7 @@ from telegram import (
 )
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 
-from tg_bot import dispatcher
+from YuiiDev import dispatcher
 
 jikan = Jikan()
 

@@ -9,11 +9,11 @@ from telegram import ParseMode, Update, ChatPermissions
 from telegram.ext import CallbackContext
 from telegram.error import BadRequest
 
-import tg_bot.modules.fun_strings as fun_strings
-from tg_bot import dispatcher
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.chat_status import is_user_admin
-from tg_bot.modules.helper_funcs.extraction import extract_user
+import YuiiDev.modules.fun_strings as fun_strings
+from YuiiDev import dispatcher
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.chat_status import is_user_admin
+from YuiiDev.modules.helper_funcs.extraction import extract_user
 
 
 def runs(update: Update, context: CallbackContext):
@@ -186,7 +186,7 @@ def table(update: Update, context: CallbackContext):
     reply_text(random.choice(fun_strings.TABLE))
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def get_help(chat):

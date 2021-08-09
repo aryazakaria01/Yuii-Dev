@@ -20,7 +20,7 @@ from telegram import (
 from telegram.ext import CommandHandler, CallbackQueryHandler
 from telegram.utils.helpers import mention_html, mention_markdown
 
-from tg_bot import (
+from YuiiDev import (
     dispatcher,
     OWNER_ID,
     SUDO_USERS,
@@ -28,18 +28,18 @@ from tg_bot import (
     GBAN_LOGS,
     log,
 )
-from tg_bot.modules.helper_funcs.chat_status import is_user_admin
-from tg_bot.modules.helper_funcs.extraction import (
+from YuiiDev.modules.helper_funcs.chat_status import is_user_admin
+from YuiiDev.modules.helper_funcs.extraction import (
     extract_user,
     extract_unt_fedban,
     extract_user_fban,
 )
-from tg_bot.modules.helper_funcs.string_handling import markdown_parser
-from tg_bot.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.string_handling import markdown_parser
+from YuiiDev.modules.disable import DisableAbleCommandHandler
 
-import tg_bot.modules.sql.feds_sql as sql
+import YuiiDev.modules.sql.feds_sql as sql
 
-from tg_bot.modules.helper_funcs.alternate import (
+from YuiiDev.modules.helper_funcs.alternate import (
     send_message,
     typing_action,
     send_action,
@@ -2318,7 +2318,7 @@ def get_chat(chat_id, chat_data):
 
 __mod_name__ = "Federations"
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def get_help(chat):

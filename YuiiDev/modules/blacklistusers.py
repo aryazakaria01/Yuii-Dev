@@ -1,7 +1,7 @@
 # Module to blacklist users and prevent them from using commands by @TheRealPhoenix
 
-import tg_bot.modules.sql.blacklistusers_sql as sql
-from tg_bot import (
+import YuiiDev.modules.sql.blacklistusers_sql as sql
+from YuiiDev import (
     DEV_USERS,
     OWNER_ID,
     SUDO_USERS,
@@ -10,9 +10,9 @@ from tg_bot import (
     WHITELIST_USERS,
     dispatcher,
 )
-from tg_bot.modules.helper_funcs.chat_status import dev_plus
-from tg_bot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from tg_bot.modules.log_channel import gloggable
+from YuiiDev.modules.helper_funcs.chat_status import dev_plus
+from YuiiDev.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from YuiiDev.modules.log_channel import gloggable
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, run_async

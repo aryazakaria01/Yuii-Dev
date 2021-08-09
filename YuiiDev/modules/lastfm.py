@@ -5,10 +5,10 @@ import requests
 from telegram import Update, ParseMode
 from telegram.ext import CommandHandler, CallbackContext
 
-from tg_bot import dispatcher, LASTFM_API_KEY
-from tg_bot.modules.disable import DisableAbleCommandHandler
+from YuiiDev import dispatcher, LASTFM_API_KEY
+from YuiiDev.modules.disable import DisableAbleCommandHandler
 
-import tg_bot.modules.sql.last_fm_sql as sql
+import YuiiDev.modules.sql.last_fm_sql as sql
 
 
 def set_user(update: Update, context: CallbackContext):

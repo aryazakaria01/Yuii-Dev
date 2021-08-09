@@ -2,8 +2,8 @@ from emoji import UNICODE_EMOJI
 from google_trans_new import LANGUAGES, google_translator
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext
-from tg_bot.modules.helper_funcs.decorators import kigcmd
-from tg_bot.modules.language import gs
+from YuiiDev.modules.helper_funcs.decorators import kigcmd
+from YuiiDev.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "gtranslate_help")

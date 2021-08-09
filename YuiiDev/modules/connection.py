@@ -10,10 +10,10 @@ from telegram.ext import (
     CallbackContext,
 )
 
-import tg_bot.modules.sql.connection_sql as sql
-from tg_bot import dispatcher, SUDO_USERS, DEV_USERS
-from tg_bot.modules.helper_funcs import chat_status
-from tg_bot.modules.helper_funcs.alternate import send_message, typing_action
+import YuiiDev.modules.sql.connection_sql as sql
+from YuiiDev import dispatcher, SUDO_USERS, DEV_USERS
+from YuiiDev.modules.helper_funcs import chat_status
+from YuiiDev.modules.helper_funcs.alternate import send_message, typing_action
 
 user_admin = chat_status.user_admin
 
@@ -387,7 +387,7 @@ def connect_button(update, context):
         connect_chat(update, context)
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "connections_help")

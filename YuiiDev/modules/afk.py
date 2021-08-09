@@ -5,14 +5,14 @@ from telegram import Update, MessageEntity
 from telegram.ext import run_async
 from telegram.ext import Filters, CallbackContext, MessageHandler
 from telegram.error import BadRequest
-from tg_bot import dispatcher
-from tg_bot.modules.disable import (
+from YuiiDev import dispatcher
+from YuiiDev.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
-from tg_bot.modules.sql import afk_sql as sql
-from tg_bot.modules.users import get_user_id
-from tg_bot.modules.language import gs
+from YuiiDev.modules.sql import afk_sql as sql
+from YuiiDev.modules.users import get_user_id
+from YuiiDev.modules.language import gs
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8

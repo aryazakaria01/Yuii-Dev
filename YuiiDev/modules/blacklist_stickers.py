@@ -1,17 +1,17 @@
 import html
 from typing import Optional
 
-import tg_bot.modules.sql.blsticker_sql as sql
-from tg_bot import log, dispatcher
-from tg_bot.modules.connection import connected
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.alternate import send_message
-from tg_bot.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from tg_bot.modules.helper_funcs.misc import split_message
-from tg_bot.modules.helper_funcs.string_handling import extract_time
+import YuiiDev.modules.sql.blsticker_sql as sql
+from YuiiDev import log, dispatcher
+from YuiiDev.modules.connection import connected
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.alternate import send_message
+from YuiiDev.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from YuiiDev.modules.helper_funcs.misc import split_message
+from YuiiDev.modules.helper_funcs.string_handling import extract_time
 
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.warns import warn
+from YuiiDev.modules.log_channel import loggable
+from YuiiDev.modules.warns import warn
 from telegram import Chat, Message, ParseMode, Update, User, ChatPermissions
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
@@ -511,7 +511,7 @@ def __stats__():
     )
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def get_help(chat):

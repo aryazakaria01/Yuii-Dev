@@ -1,9 +1,9 @@
 import html
 
-from tg_bot import log, SUDO_USERS, TIGER_USERS, WHITELIST_USERS, dispatcher
-from tg_bot.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.sql import reporting_sql as sql
+from YuiiDev import log, SUDO_USERS, TIGER_USERS, WHITELIST_USERS, dispatcher
+from YuiiDev.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from YuiiDev.modules.log_channel import loggable
+from YuiiDev.modules.sql import reporting_sql as sql
 from telegram import Chat, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import (
@@ -267,7 +267,7 @@ def buttons(update: Update, context: CallbackContext):
             query.answer("🛑 Failed to delete message!")
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def get_help(chat):

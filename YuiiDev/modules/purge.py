@@ -1,8 +1,8 @@
 import time
 from telethon import events
 
-from tg_bot import telethn
-from tg_bot.modules.helper_funcs.telethn.chatstatus import (
+from YuiiDev import telethn
+from YuiiDev.modules.helper_funcs.telethn.chatstatus import (
     can_delete_messages, user_is_admin)
 
 
@@ -70,7 +70,7 @@ async def delete_messages(event):
     del_message = [message, event.message]
     await event.client.delete_messages(chat, del_message)
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "purge_help")

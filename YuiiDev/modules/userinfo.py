@@ -5,10 +5,10 @@ from telegram import Update, ParseMode, MAX_MESSAGE_LENGTH
 from telegram.ext.dispatcher import CallbackContext
 from telegram.utils.helpers import escape_markdown
 
-import tg_bot.modules.sql.userinfo_sql as sql
-from tg_bot import dispatcher, SUDO_USERS, DEV_USERS
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.extraction import extract_user
+import YuiiDev.modules.sql.userinfo_sql as sql
+from YuiiDev import dispatcher, SUDO_USERS, DEV_USERS
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.extraction import extract_user
 
 
 def about_me(update: Update, context: CallbackContext):
@@ -195,7 +195,7 @@ def __user_info__(user_id):
         return "\n"
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def get_help(chat):

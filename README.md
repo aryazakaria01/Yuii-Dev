@@ -34,7 +34,7 @@ The Support group can be reached out to at [Yuii Support | ON TOPIC](https://t.m
 - `cp sample_config.ini config.ini`
 - *Fill in all the vars*
 - `pip3 install -U -r requirements.txt`
-- *And finally* `python3 -m tg_bot`
+- *And finally* `python3 -m YuiiDev`
 
 *Enjoy!*
 

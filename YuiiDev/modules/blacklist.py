@@ -4,19 +4,19 @@ from telegram import ParseMode, ChatPermissions
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, MessageHandler, Filters
 from telegram.utils.helpers import mention_html
-from tg_bot.modules.sql.approve_sql import is_approved
-import tg_bot.modules.sql.blacklist_sql as sql
-from tg_bot import dispatcher, log
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from tg_bot.modules.helper_funcs.extraction import extract_text
-from tg_bot.modules.helper_funcs.misc import split_message
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.warns import warn
-from tg_bot.modules.helper_funcs.string_handling import extract_time
-from tg_bot.modules.connection import connected
+from YuiiDev.modules.sql.approve_sql import is_approved
+import YuiiDev.modules.sql.blacklist_sql as sql
+from YuiiDev import dispatcher, log
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from YuiiDev.modules.helper_funcs.extraction import extract_text
+from YuiiDev.modules.helper_funcs.misc import split_message
+from YuiiDev.modules.log_channel import loggable
+from YuiiDev.modules.warns import warn
+from YuiiDev.modules.helper_funcs.string_handling import extract_time
+from YuiiDev.modules.connection import connected
 
-from tg_bot.modules.helper_funcs.alternate import send_message, typing_action
+from YuiiDev.modules.helper_funcs.alternate import send_message, typing_action
 
 BLACKLIST_GROUP = 11
 
@@ -450,7 +450,7 @@ def __stats__():
 
 __mod_name__ = "Blacklists"
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "blacklist_help")

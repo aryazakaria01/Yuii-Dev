@@ -3,26 +3,26 @@ import re
 from typing import Optional
 
 import telegram
-from tg_bot import BAN_STICKER, TIGER_USERS, WHITELIST_USERS, dispatcher
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.chat_status import (
+from YuiiDev import BAN_STICKER, TIGER_USERS, WHITELIST_USERS, dispatcher
+from YuiiDev.modules.disable import DisableAbleCommandHandler
+from YuiiDev.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     is_user_admin,
     user_admin,
     user_admin_no_reply,
 )
-from tg_bot.modules.helper_funcs.extraction import (
+from YuiiDev.modules.helper_funcs.extraction import (
     extract_text,
     extract_user,
     extract_user_and_text,
 )
-from tg_bot.modules.helper_funcs.filters import CustomFilters
-from tg_bot.modules.helper_funcs.misc import split_message
-from tg_bot.modules.helper_funcs.string_handling import split_quotes
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.sql import warns_sql as sql
-from tg_bot.modules.sql.approve_sql import is_approved
+from YuiiDev.modules.helper_funcs.filters import CustomFilters
+from YuiiDev.modules.helper_funcs.misc import split_message
+from YuiiDev.modules.helper_funcs.string_handling import split_quotes
+from YuiiDev.modules.log_channel import loggable
+from YuiiDev.modules.sql import warns_sql as sql
+from YuiiDev.modules.sql.approve_sql import is_approved
 from telegram import (
     CallbackQuery,
     Chat,
@@ -507,7 +507,7 @@ def __chat_settings__(chat_id, user_id):
     )
 
 
-from tg_bot.modules.language import gs
+from YuiiDev.modules.language import gs
 
 
 def get_help(chat):

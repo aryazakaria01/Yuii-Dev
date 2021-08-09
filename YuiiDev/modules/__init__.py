@@ -1,4 +1,4 @@
-from tg_bot import log
+from YuiiDev import log
 
 
 def __list_all_modules():

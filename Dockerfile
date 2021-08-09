@@ -72,4 +72,4 @@ ENV PATH="/root/bot/bin:$PATH"
 RUN pip3 install -U -r requirements.txt
 
 # Starting Worker
-CMD ["python3","-m","tg_bot"]
+CMD ["python3","-m","YuiiDev"]

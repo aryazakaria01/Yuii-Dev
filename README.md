@@ -43,7 +43,7 @@ The Support group can be reached out to at [Yuii Support | ON TOPIC](https://t.m
 For queries or any issues regarding the bot please open an issue ticket or visit us at [Yuii Chan Club](https://t.me/YuiiSupport)  
 
 ## Credits
-The bot is based of on the original work done by [Arya Zakaria](https://github.com/aryazakaria01)
+The bot is based of on the original work done by [PaulSonOfLars](https://github.com/PaulSonOfLars)
 This repo was just reamped to suit an Anime-centric community. All original credits go to Paul and his dedication, Without his efforts, this fork would not have been possible!
 
 

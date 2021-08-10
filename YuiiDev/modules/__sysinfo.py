@@ -1,7 +1,7 @@
-#  This module is part of Asuna Yuuki or Asuna Robot
+#  This module is part of YuiiDev or Yuii Dev
 #  Inspired from CinderellaProBot
-#  Edited by zYxDevs or Yoga_CIC
-#  github.com/zYxDevs or t.me/Yoga_CIC
+#  Edited by aryazakaria01 or Badboyanim
+#  github.com/aryazakaria01 or t.me/Badboyanim
 
 
 import psutil
@@ -11,10 +11,10 @@ from platform import python_version, uname
 from telegram import Update, Bot, ParseMode
 from telegram.ext import run_async, CommandHandler
 
-from LaylaRobot import dispatcher, DEV_USERS
-from LaylaRobot.modules.helper_funcs.cs import dev_plus
-import LaylaRobot.modules.helper_funcs.git_api as git
-from LaylaRobot.modules.helper_funcs.filters import CustomFilters
+from YuiiDev import dispatcher, DEV_USERS
+from YuiiDev.modules.helper_funcs.cs import dev_plus
+import YuiiDev.modules.helper_funcs.git_api as git
+from YuiiDev.modules.helper_funcs.filters import CustomFilters
 
 
 @dev_plus

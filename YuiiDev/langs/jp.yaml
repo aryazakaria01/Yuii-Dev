@@ -40,71 +40,71 @@ admin_help: |
    • `/invitelink`*:* 招待リンクを取得します
    • `/promote`*:* 返信したユーザーを宣伝します
    • `/demote`*:* 返信したユーザーを降格します
-   • `/title <title here>`*:* ボットがプロモートした管理者のカスタムタイトルを設定します
+   • `/title <タイトルはこちら>`*:* ボットがプロモートした管理者のカスタムタイトルを設定します
 
 afk_help: |
-   - /afk <reason>: 自分をAFKとしてマークする(キーボードから離れて).
-   - brb <reason>: afkコマンドと同じですが、コマンドではありません。
+   - /afk <理由>: 自分をAFKとしてマークする(キーボードから離れて).
+   - brb <理由>: afkコマンドと同じですが、コマンドではありません。
    AFKとしてマークされている場合、メンションには、利用できないことを示すメッセージが返信されます。
 
 anilist_help: |
     *AniList*
     このモジュールの助けを借りて、アニメ、マンガ、またはキャラクターに関する情報を入手してください！すべてのデータはからフェッチされます [AniList](anilist.co).
     *利用可能なコマンド:*
-     - /anime <anime>: returns information about the anime.
-     - /character <character>: returns information about the character.
-     - /manga <manga>: returns information about the manga.
+     - /anime <アニメ>: アニメに関する情報を返します。
+     - /character <キャラクター>: 文字に関する情報を返します。
+     - /manga <マンガ>: マンガに関する情報を返します。
 
 antiflood_help: |
-    Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood \
-    will result in restricting that user.
-     This will mute users if they send more than 10 messages in a row, bots are ignored.
-     • `/flood`*:* Get the current flood control setting
-    • *Admins only:*
-     • `/setflood <int/'no'/'off'>`*:* enables or disables flood control
-     *Example:* `/setflood 10`
-     • `/setfloodmode <ban/kick/mute/tban/tmute> <value>`*:* Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
-    • *Note:*
-     • Value must be filled for tban and tmute!!
-     It can be:
-     `5m` = 5 minutes
-     `6h` = 6 hours
-     `3d` = 3 days
-     `1w` = 1 week
+    Antifloodを使用すると、x個を超えるメッセージを連続して送信するユーザーに対してアクションを実行できます。設定された洪水を超える \
+    そのユーザーを制限することになります。
+     これにより、ユーザーが10を超えるメッセージを連続して送信した場合、ユーザーはミュートされ、ボットは無視されます。
+     • `/flood`*:* 現在の洪水制御設定を取得します
+    • *管理者のみ:*
+     • `/setflood <int/'no'/'off'>`*:* 洪水制御を有効または無効にします
+     *例:* `/setflood 10`
+     • `/setfloodmode <ban/kick/mute/tban/tmute> <value>`*:* ユーザーがフラッド制限を超えたときに実行するアクション. ban/kick/mute/tmute/tban
+    • *ノート:*
+     • tbanとtmuteの値を入力する必要があります!!
+     かもね:
+     `5m` = 5 分
+     `6h` = 6 時間
+     `3d` = 3 日々
+     `1w` = 1 週
 
 approve_help: |
-     Sometimes, you might trust a user not to send unwanted content.
-     Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
-     That's what approvals are for - approve of trustworthy users to allow them to send
-     *Admin commands:*
-     • `/approval`*:* Check a user's approval status in current chat.
-     • `/approve`*:* Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
-     • `/unapprove`*:* Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
-     • `/approved`*:* List all approved users.
-     • `/unapproveall`*:* Unapprove *ALL* users in a chat. This cannot be undone.
+     場合によっては、ユーザーが不要なコンテンツを送信しないことを信頼することがあります.
+     それらを管理者にするのに十分ではないかもしれませんが、ロック、ブラックリスト、および洪水防止がそれらに適用されなくても大丈夫かもしれません.
+     それが承認の目的です - 信頼できるユーザーを承認して、送信を許可する
+     *管理コマンド:*
+     • `/approval`*:* 現在のチャットでユーザーの承認ステータスを確認する.
+     • `/approve`*:* ユーザーの承認。ロック、ブラックリスト、および洪水防止はそれらに適用されなくなります.
+     • `/unapprove`*:* ユーザーの承認を取り消す。それらは、ロック、ブラックリスト、および洪水防止の対象になります。.
+     • `/approved`*:* 承認されたすべてのユーザーを一覧表示します.
+     • `/unapproveall`*:* チャットの*すべての*ユーザーの承認を取り消す。これは、元に戻すことはできません.
 
 backup_help: |
-    *Admin only:*
-     - /import: reply to a group butler backup file to import as much as possible, making the transfer super simple! Note \
-       that files/photos can't be imported due to telegram restrictions.
-     - /export: !!! This isn't a command yet, but should be coming soon!
+    *管理者のみ:*
+     - /import: グループバトラーのバックアップファイルに返信して、可能な限りインポートすることで、転送が非常に簡単になります。 ノート \
+       そのファイル/電報の制限により写真をインポートできません.
+     - /export: !!! これはまだコマンドではありませんが、すぐに来るはずです!
 
 bans_help: |
-    - /kickme: kicks the user who issued the command
-     *Admin only:*
-    - /ban <userhandle>: bans a user. (via handle, or reply)
-    - /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-    - /unban <userhandle>: unbans a user. (via handle, or reply)
-    - /kick <userhandle>: kick a user out of the group, (via handle, or reply)
+    - /kickme: コマンドを発行したユーザーをキックします
+     *管理者のみ:*
+    - /ban <ユーザーハンドル>: ユーザーを禁止する. (ハンドル経由、または返信)
+    - /tban <ユーザーハンドル> x(m/h/d): ユーザーをx時間禁止する. (ハンドル経由、または返信). m = 分, h = 時間, d = 日々.
+    - /unban <ユーザーハンドル>: ユーザーの禁止を解除する. (ハンドル経由、または返信)
+    - /kick <ユーザーハンドル>: グループからユーザーを追い出す, (ハンドル経由、または返信)
 
 blacklist_help: |
-    Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
-    *NOTE*: Blacklists do not affect group admins.
-     • `/blacklist`*:* View the current blacklisted words.
-    Admin only:
-     • `/addblacklist <triggers>`*:* Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
-     • `/unblacklist <triggers>`*:* Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
-     • `/blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>`*:* Action to perform when someone sends blacklisted words.
+    ブラックリストは、特定のトリガーがグループ内で言われるのを防ぐために使用されます。トリガーが言及されるたびに、メッセージはすぐに削除されます。良い組み合わせは、これを警告フィルターと組み合わせることです！
+    *ノート*: ブラックリストはグループ管理者に影響を与えません.
+     • `/blacklist`*:* 現在ブラックリストに登録されている単語を表示する.
+    管理者のみ:
+     • `/addblacklist <triggers>`*:* ブラックリストにトリガーを追加します。各行は1つのトリガーと見なされるため、異なる行を使用すると、複数のトリガーを追加できます。.
+     • `/unblacklist <triggers>`*:* ブラックリストからトリガーを削除します。ここでも同じ改行ロジックが適用されるため、一度に複数のトリガーを削除できます.
+     • `/blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>`*:* 誰かがブラックリストに載っている単語を送信したときに実行するアクション.
 
 cleaner_help: |
     - /cleanbluetext <on/off/yes/no> - clean commands after sending

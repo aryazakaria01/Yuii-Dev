@@ -15,17 +15,17 @@ pm_start_text: |
 grp_start_text: 「こんにちは、キギョです。」
 
 pm_help_text: |
-   Hello there! My name is *Yuii*..
-   I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of
-   the things I can help you with.
-   *Main* commands available:
-    • /start: Starts me, can be used to check I'm alive or not.
-    • /help: PM's you this message.
-    • /language: Change bot language.
+   こんにちは！私の名前は *ゆい*..
+   私はモジュラーグループ管理ボットで、いくつかの楽しい機能が追加されています。いくつかのアイデアについては、以下をご覧ください
+   私があなたを助けることができること。
+   *主要* 利用可能なコマンド:
+    • /start: 私を開始し、私が生きているかどうかを確認するために使用することができます.
+    • /help: このコマンドが必要な場合は私へのプライベートメッセージ.
+    • /language: ボットの言語を変更する.
     • /settings:
-      - in PM: will send you your settings for all supported modules.
-      - in a group: will redirect you to pm, with all that chat's settings.
-    Click on the buttons below to get documentation about specific modules!
+      - プライベートメッセージで: サポートされているすべてのモジュールの設定が送信されます.
+      - グループで: チャットのすべての設定で、午後にリダイレクトされます.
+    特定のモジュールに関するドキュメントを入手するには、下のボタンをクリックしてください!
 
 add_bot_to_group_btn:  "私を追加してください"
 support_chat_link_btn:  "サポート"
@@ -33,24 +33,24 @@ updates_channel_link_btn: "更新"
 src_btn:  "ソース"
 
 admin_help: |
-   • `/admins`*:* list of admins in the chat
-   *Admins only:*
-   • `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users.
-   • `/unpin`*:* unpins the currently pinned message
-   • `/invitelink`*:* gets invitelink
-   • `/promote`*:* promotes the user replied to
-   • `/demote`*:* demotes the user replied to
-   • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
+   • `/admins`*:* チャットの管理者のリスト
+   *管理者のみ:*
+   • `/pin`*:* 返信されたメッセージをサイレントに固定します - 追加 `'うるさい'` また `'通知する'` ユーザーに通知する.
+   • `/unpin`*:* 現在固定されているメッセージの固定を解除します
+   • `/invitelink`*:* 招待リンクを取得します
+   • `/promote`*:* 返信したユーザーを宣伝します
+   • `/demote`*:* 返信したユーザーを降格します
+   • `/title <title here>`*:* ボットがプロモートした管理者のカスタムタイトルを設定します
 
 afk_help: |
-   - /afk <reason>: mark yourself as AFK(away from keyboard).
-   - brb <reason>: same as the afk command - but not a command.
-   When marked as AFK, any mentions will be replied to with a message to say you're not available!
+   - /afk <reason>: 自分をAFKとしてマークする(キーボードから離れて).
+   - brb <reason>: afkコマンドと同じですが、コマンドではありません。
+   AFKとしてマークされている場合、メンションには、利用できないことを示すメッセージが返信されます。
 
 anilist_help: |
     *AniList*
-    Get information about anime, manga or characters with the help of this module! All data is fetched from [AniList](anilist.co).
-    *Available commands:*
+    このモジュールの助けを借りて、アニメ、マンガ、またはキャラクターに関する情報を入手してください！すべてのデータはからフェッチされます [AniList](anilist.co).
+    *利用可能なコマンド:*
      - /anime <anime>: returns information about the anime.
      - /character <character>: returns information about the character.
      - /manga <manga>: returns information about the manga.

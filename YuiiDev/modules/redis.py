@@ -2,7 +2,7 @@ import sys
 
 import redis as redis_lib
 
-from YuiiDev import LOGGER
+from YuiiDev import log
 from YuiiDev.conf import get_str_key
 
 # Init Redis

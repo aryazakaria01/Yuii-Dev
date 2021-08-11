@@ -105,6 +105,7 @@ bans_help: |
     - /kickme: menendang pengguna yang mengeluarkan perintah
      *Hanya Admin:*
     - /ban <userhandle>: melarang pengguna. (melalui pegangan, atau balasan)
+    - /dban <userhandle>: Bans a user and delete the message. (via handle, or reply)
     - /tban <userhandle> x(m/h/d): melarang pengguna untuk x waktu. (melalui pegangan, atau balasan). m = menit, h = jam, d = hari.
     - /unban <userhandle>: membatalkan pemblokiran pengguna. (melalui pegangan, atau balasan)
     - /kick <userhandle>: mengeluarkan pengguna dari grup, (melalui handle, atau membalas)

@@ -13,7 +13,6 @@
 [![Contributors](https://img.shields.io/github/contributors/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/graphs/contributors)
 [![Repository Size](https://img.shields.io/github/repo-size/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/archive/refs/heads/main.zip)</br>
 ![CodeFactor](https://www.codefactor.io/repository/github/aryazakaria01/yuii-dev/badge?s=7463f484136e45003925cb3d056a889ad02cc11c)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c524e61cd8640e79b80d406eda8754b)](https://www.codacy.com/gh/codacy/codacy-coverage-reporter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-coverage-reporter&amp;utm_campaign=Badge_Grade)
 
 A modular telegram Python bot running on python3 with an sqlalchemy database.
 

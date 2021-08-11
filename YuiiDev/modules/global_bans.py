@@ -216,7 +216,7 @@ def gban(update: Update, context: CallbackContext):
             continue
 
         try:
-            bot.kick_chat_member(chat_id, user_id)
+            bot.ban_chat_member(chat_id, user_id)
             gbanned_chats += 1
 
         except BadRequest as excp:
@@ -424,7 +424,7 @@ def check_and_ban(update, user_id, should_message=True):
             sw_ban = None
 
     if sw_ban:
-        update.effective_chat.kick_member(user_id)
+        update.effective_chat.ban_member(user_id)
         if should_message:
             update.effective_message.reply_text(
                 f"<b>Alert</b>: this user is globally banned.\n"
@@ -437,7 +437,7 @@ def check_and_ban(update, user_id, should_message=True):
         return
 
     if sql.is_user_gbanned(user_id):
-        update.effective_chat.kick_member(user_id)
+        update.effective_chat.ban_member(user_id)
         if should_message:
             text = (
                 f"<b>Alert</b>: this user is globally banned.\n"
@@ -495,7 +495,7 @@ def gbanstat(update: Update, context: CallbackContext):
         elif args[0].lower() in ["off", "no"]:
             sql.disable_gbans(update.effective_chat.id)
             update.effective_message.reply_text(
-                "Antispan is now disabled ❌ " "Spamwatch is now disabled ❌",
+                "Antispam is now disabled ❌ " "Spamwatch is now disabled ❌",
             )
     else:
         update.effective_message.reply_text(
@@ -555,10 +555,8 @@ Constantly help banning spammers off from your group automatically So, you wont 
 GBAN_HANDLER = CommandHandler("gban", gban)
 UNGBAN_HANDLER = CommandHandler("ungban", ungban)
 GBAN_LIST = CommandHandler("gbanlist", gbanlist)
-
-GBAN_STATUS = CommandHandler("antispam", gbanstat, filters=Filters.group)
-
-GBAN_ENFORCER = MessageHandler(Filters.all & Filters.group, enforce_gban)
+GBAN_STATUS = CommandHandler("antispam", gbanstat, filters=Filters.chat_type.groups)
+GBAN_ENFORCER = MessageHandler(Filters.all & Filters.chat_type.groups, enforce_gban)
 
 dispatcher.add_handler(GBAN_HANDLER)
 dispatcher.add_handler(UNGBAN_HANDLER)

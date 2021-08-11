@@ -38,10 +38,10 @@ from YuiiDev.modules.log_channel import loggable, gloggable
 @user_admin
 @loggable
 def ban(update, context):
-    chat = update.effective_chat  # type: Optional[Chat]
-    user = update.effective_user  # type: Optional[User]
-    message = update.effective_message  # type: Optional[Message]
-    args = context.args
+    bot, args = context.bot, context.args
+    chat = update.effective_chat
+    user = update.effective_user
+    message = update.effective_message
     log_message = ""
     user_id, reason = extract_user_and_text(message, args)
 
@@ -58,7 +58,7 @@ def ban(update, context):
         else:
             raise
 
-    if user_id == context.bot.id:
+    if user_id == bot.id:
         message.reply_text("Why are You being mean to me!")
         return log_message
 
@@ -85,6 +85,9 @@ def ban(update, context):
             message.reply_text("This user has immunity and cannot be banned.")
             return log_message
 
+    if message.text.startswith("/d") and message.reply_to_message:
+        message.reply_to_message.delete()
+
     log = (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#BANNED\n"
@@ -96,12 +99,12 @@ def ban(update, context):
 
     try:
         chat.ban_member(user_id)
-        # context.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
         reply = (
             f"<code>❕</code><b>Ban Event</b>\n"
             f"<code> </code><b>•  User:</b> {mention_html(member.user.id, html.escape(member.user.first_name))}"
         )
-        context.bot.sendMessage(
+        bot.sendMessage(
             chat.id,
             reply,
             parse_mode=ParseMode.HTML,
@@ -394,7 +397,7 @@ def get_help(chat):
     return gs(chat, "bans_help")
 
 
-BAN_HANDLER = CommandHandler("ban", ban, pass_args=True, run_async=True)
+BAN_HANDLER = CommandHandler(["ban", "dban"], ban, pass_args=True, run_async=True)
 TEMPBAN_HANDLER = CommandHandler(
     ["tban", "tempban"], temp_ban, pass_args=True, run_async=True
 )

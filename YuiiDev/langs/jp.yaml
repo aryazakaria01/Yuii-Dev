@@ -93,7 +93,7 @@ bans_help: |
     - /kickme: コマンドを発行したユーザーをキックします
      *管理者のみ:*
     - /ban <ユーザーハンドル>: ユーザーを禁止する. (ハンドル経由、または返信)
-    - /dban <userhandle>: Bans a user and delete the message. (via handle, or reply)
+    - /dban <ユーザーハンドル>: ユーザーを禁止し、メッセージを削除します. (ハンドル経由、または返信)
     - /tban <ユーザーハンドル> x(分/時間/日々): ユーザーをx時間禁止する. (ハンドル経由、または返信). m = 分, h = 時間, d = 日々.
     - /unban <ユーザーハンドル>: ユーザーの禁止を解除する. (ハンドル経由、または返信)
     - /kick <ユーザーハンドル>: グループからユーザーを追い出す, (ハンドル経由、または返信)
@@ -103,23 +103,23 @@ blacklist_help: |
     *ノート*: ブラックリストはグループ管理者に影響を与えません.
      • `/blacklist`*:* 現在ブラックリストに登録されている単語を表示する.
     管理者のみ:
-     • `/addblacklist <triggers>`*:* ブラックリストにトリガーを追加します。各行は1つのトリガーと見なされるため、異なる行を使用すると、複数のトリガーを追加できます。.
-     • `/unblacklist <triggers>`*:* ブラックリストからトリガーを削除します。ここでも同じ改行ロジックが適用されるため、一度に複数のトリガーを削除できます.
+     • `/addblacklist <トリガー>`*:* ブラックリストにトリガーを追加します。各行は1つのトリガーと見なされるため、異なる行を使用すると、複数のトリガーを追加できます。.
+     • `/unblacklist <トリガー>`*:* ブラックリストからトリガーを削除します。ここでも同じ改行ロジックが適用されるため、一度に複数のトリガーを削除できます.
      • `/blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>`*:* 誰かがブラックリストに載っている単語を送信したときに実行するアクション.
 
 cleaner_help: |
-    - /cleanbluetext <on/off/yes/no> - clean commands after sending
-    - /ignorecleanbluetext <word> - prevent auto cleaning of the command
-    - /unignorecleanbluetext <word> - remove prevent auto cleaning of the command
-    - /listcleanbluetext - list currently whitelisted commands
+    - /cleanbluetext <on/off/yes/no> - 送信後のクリーンコマンド
+    - /ignorecleanbluetext <語> - コマンドの自動クリーニングを防止する
+    - /unignorecleanbluetext <語> - コマンドの自動クリーニングを防ぐを削除します
+    - /listcleanbluetext - 現在ホワイトリストに登録されているコマンドを一覧表示する
 
 connections_help: |
-    - /connect: connect a chat (Can be done in a group by /connect or /connect <chat id> in PM)
-    - /connection: list connected chats
-    - /disconnect: disconnect from a chat
-    - /helpconnect: list available commands that can be done remotely
-     *Admin only:*
-    - /allowconnect <yes/no>: allow a user to connect to a chat
+    - /connect: チャットに接続する (グループで行うことができます /connect また /connect <chat id> 午後に)
+    - /connection: 接続されたチャットを一覧表示する
+    - /disconnect: チャットから切断する
+    - /helpconnect: リモートで実行できる使用可能なコマンドを一覧表示します
+     *管理者のみ:*
+    - /allowconnect <yes/no>: ユーザーがチャットに接続できるようにする
 
 cust_filters_help: |
     • `/filters`*:* List all active filters saved in the chat.
@@ -190,7 +190,7 @@ antispam_help: |
       • `/antispam <on/off/yes/no>`*:* Will toggle our antispam tech or return your current settings.
      Anti-Spam, used by bot devs to ban spammers across all groups. This helps protect
      you and your groups by removing spam flooders as quickly as possible.
-     *Note:* Users can appeal gbans or report spammers at @yuiichansupport
+     *Note:* Users can appeal gbans or report spammers at @YuiiSupport
      Yuii also integrates @Spamwatch API to remove Spammers as much as possible from your chatroom!
      *What is SpamWatch?*
      SpamWatch maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters[.](https://telegra.ph/file/c1051d264a5b4146bd71e.jpg)

@@ -67,12 +67,16 @@
       },
       "OWNER_USERNAME": {
          "description": "Your username without the @",
-         "value": "HEROGAMERS1"
+         "value": "Badboyanim"
+      },
+      "REDIS_URI": {
+         "description": "Redis endpoint URL, from redislabs.com",
+         "value": ""      
       },
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to masha support than consider you made an enemy.",
          "required": true,
-         "value": "AwesomeSupport"
+         "value": "YuiiSupport"
       },
       "MONGO_DB_URI": {
          "description": "Required for database connections.",

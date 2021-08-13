@@ -1,4 +1,4 @@
-![YuiiChan](https://telegra.ph/file/b89daeab2dd9c5c299dc4.jpg)
+![YuiiChan](https://telegra.ph/file/c26a7c55c4af55ad6ff3e.jpg)
 # Yuii-Chan // [@YuiiDev_bot](https://t.me/YuiiDev_bot)
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)

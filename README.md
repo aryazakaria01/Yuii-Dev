@@ -5,7 +5,7 @@
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/aryazakaria01)</br>
 
 
-[![Python Version](https://img.shields.io/badge/python-3.9.7-green?style=for-the-badge&logo=python)](https://docs.python.org)
+[![Python Version](https://img.shields.io/badge/python-3.9.6-green?style=for-the-badge&logo=python)](https://docs.python.org)
 [![Issues](https://img.shields.io/github/issues/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/issues)
 [![Forks](https://img.shields.io/github/forks/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/network/members)
 [![Stars](https://img.shields.io/github/stars/aryazakaria01/Yuii-Dev?style=for-the-badge&logo=github)](https://github.com/aryazakaria01/Yuii-Dev/stargazers)

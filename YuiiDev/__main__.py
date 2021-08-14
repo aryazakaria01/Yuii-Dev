@@ -56,7 +56,7 @@ from YuiiDev.modules.notes import private_get, lst_notes
 from YuiiDev.modules.language import gs
 
 PM_START_TEXT = """
-──「 [YuiiChan](https://telegra.ph/file/b89daeab2dd9c5c299dc4.jpg) 」──
+──「 [YuiiChan](https://telegra.ph/file/c26a7c55c4af55ad6ff3e.jpg) 」──
 *Yoshaa! {},*
 *I'm Anime themed group management bot*
 I've some features for you :)
@@ -87,7 +87,7 @@ And the following:
 )
 
 
-Yuii_IMG = "https://telegra.ph/file/b89daeab2dd9c5c299dc4.jpg"
+Yuii_IMG = "https://telegra.ph/file/c26a7c55c4af55ad6ff3e.jpg"
 #Yuii_VID = fill with your telegraph video link
 
 IMPORTED = {}

@@ -1,6 +1,8 @@
+import sys
 import logging
 import os
-import sys, json
+import sys
+import json
 import time
 import spamwatch
 import telegram.ext as tg
@@ -30,7 +32,7 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 log = logging.getLogger("rich")
 
-log.info("[Yuii] Yuii is starting.S| Licensed under GPLv3.")
+log.info("[Yuii] Yuii is starting | Licensed under GPLv3.")
 
 log.info("[Yuii] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
 log.info("[Yuii] Project maintained by: github.com/aryazakaria01 (t.me/Badboyanim)")
@@ -40,7 +42,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 7:
     log.error(
         "[Yuii] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
     )
-    quit(1)
+    sys.exit(1)
 
 parser = ConfigParser()
 parser.read("config.ini")

@@ -20,7 +20,7 @@ StartTime = time.time()
 
 
 def get_user_list(__init__, key):
-    with open("{}/tg_bot/{}".format(os.getcwd(), __init__), "r") as json_file:
+    with open("{}/YuiiDev/{}".format(os.getcwd(), __init__), "r") as json_file:
         return json.load(json_file)[key]
 
 
@@ -34,8 +34,9 @@ log = logging.getLogger("rich")
 
 log.info("[Yuii] Yuii is starting | Licensed under GPLv3.")
 
-log.info("[Yuii] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
+log.info("[Yuii] Hasil Kerja Keras Banyak Orang.")
 log.info("[Yuii] Project maintained by: github.com/aryazakaria01 (t.me/Badboyanim)")
+log.info("[Yuii] Credit are Belongs UserLazy, Ryoumen-Sukuna, zYxDevs")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 7:

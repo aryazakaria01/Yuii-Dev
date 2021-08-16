@@ -68,7 +68,6 @@ BAN_STICKER = kigconfig.get("BAN_STICKER", None)
 TOKEN = kigconfig.get("TOKEN")
 NO_LOAD = []
 DB_URI = kigconfig.get("SQLALCHEMY_DATABASE_URI")
-MONGO_DB_URI = kigconfig.get("MONGO_DB_URI", None)
 MESSAGE_DUMP = kigconfig.getfloat("MESSAGE_DUMP")
 GBAN_LOGS = kigconfig.getfloat("GBAN_LOGS")
 SUDO_USERS = get_user_list("elevated_users.json", "sudos")

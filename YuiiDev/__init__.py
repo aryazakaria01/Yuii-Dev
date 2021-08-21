@@ -1,179 +1,214 @@
-import sys
 import logging
 import os
 import sys
-import json
 import time
-import spamwatch
 import telegram.ext as tg
-from telethon import TelegramClient
-from telethon.sessions import MemorySession
-from pyrogram import Client, errors
-from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid, ChannelInvalid
-from pyrogram.types import Chat, User
-from configparser import ConfigParser
-from rich.logging import RichHandler
-from ptbcontrib.postgres_persistence import PostgresPersistence
-
-
+import spamwatch
 StartTime = time.time()
+from pyrogram import Client, errors
+from telethon import TelegramClient
+from aiohttp import ClientSession
+from Python_ARQ import ARQ
 
-
-def get_user_list(__init__, key):
-    with open("{}/YuiiDev/{}".format(os.getcwd(), __init__), "r") as json_file:
-        return json.load(json_file)[key]
-
-
+VERSION = "7.0"
 # enable logging
-FORMAT = "[✔] %(message)s"
 logging.basicConfig(
-    handlers=[RichHandler()], level=logging.INFO, format=FORMAT, datefmt="[%X]"
-)
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-log = logging.getLogger("rich")
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    level=logging.INFO)
 
-log.info("[Yuii] Yuii is starting | Licensed under GPLv3.")
-
-log.info("[Yuii] Hasil Kerja Keras Banyak Orang.")
-log.info("[Yuii] Project maintained by: github.com/aryazakaria01 (t.me/Badboyanim)")
-log.info("[Yuii] Credit are Belongs UserLazy, Ryoumen-Sukuna, zYxDevs")
+LOGGER = logging.getLogger(__name__)
 
 # if version < 3.6, stop bot.
-if sys.version_info[0] < 3 or sys.version_info[1] < 7:
-    log.error(
-        "[Yuii] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
-    )
-    sys.exit(1)
+if sys.version_info[0] < 3 or sys.version_info[1] < 6:
+    LOGGER.error("You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting.")
+    quit(1)
 
-parser = ConfigParser()
-parser.read("config.ini")
-kigconfig = parser["kigconfig"]
+ENV = bool(os.environ.get('ENV', False))
 
+if ENV:
+    TOKEN = os.environ.get('TOKEN', None)
 
-OWNER_ID = kigconfig.getint("OWNER_ID")
-OWNER_USERNAME = kigconfig.get("OWNER_USERNAME")
-APP_ID = kigconfig.getint("APP_ID")
-API_HASH = kigconfig.get("API_HASH")
-WEBHOOK = kigconfig.getboolean("WEBHOOK", False)
-URL = kigconfig.get("URL", None)
-CERT_PATH = kigconfig.get("CERT_PATH", None)
-PORT = kigconfig.getint("PORT", None)
-MONGO_DB_URI = kigconfig.get("MONGO_DB_URI", None)
-BOT_ID = kigconfig.get("BOT_ID", None)
-INFOPIC = kigconfig.getboolean("INFOPIC", False)
-DEL_CMDS = kigconfig.getboolean("DEL_CMDS", False)
-STRICT_GBAN = kigconfig.getboolean("STRICT_GBAN", False)
-ALLOW_EXCL = kigconfig.getboolean("ALLOW_EXCL", False)
-CUSTOM_CMD = ["/", "!"]
-BAN_STICKER = kigconfig.get("BAN_STICKER", None)
-TOKEN = kigconfig.get("TOKEN")
-NO_LOAD = []
-DB_URI = kigconfig.get("SQLALCHEMY_DATABASE_URI")
-MESSAGE_DUMP = kigconfig.getfloat("MESSAGE_DUMP")
-GBAN_LOGS = kigconfig.getfloat("GBAN_LOGS")
-SUDO_USERS = get_user_list("elevated_users.json", "sudos")
-DEV_USERS = get_user_list("elevated_users.json", "devs")
-SUPPORT_USERS = get_user_list("elevated_users.json", "supports")
-TIGER_USERS = get_user_list("elevated_users.json", "tigers")
-WHITELIST_USERS = get_user_list("elevated_users.json", "whitelists")
-SPAMMERS = get_user_list("elevated_users.json", "spammers")
-spamwatch_api = kigconfig.get("spamwatch_api")
-CASH_API_KEY = kigconfig.get("CASH_API_KEY")
-SPB_MODE = kigconfig.getboolean('SPB_MODE', False)
-TIME_API_KEY = kigconfig.get("TIME_API_KEY")
-WALL_API = kigconfig.get("WALL_API")
-LASTFM_API_KEY = kigconfig.get("LASTFM_API_KEY")
-try:
-    CF_API_KEY = kigconfig.get("CF_API_KEY")
-    log.info("[NLP] AI antispam powered by Intellivoid.")
-except:
-    log.info("[NLP] No Coffeehouse API key provided.")
-    CF_API_KEY = None
-
-
-SUDO_USERS.append(OWNER_ID)
-DEV_USERS.append(OWNER_ID)
-
-# SpamWatch
-if spamwatch_api is None:
-    sw = None
-    log.warning("SpamWatch API key is missing! Check your config.ini")
-else:
     try:
-        sw = spamwatch.Client(spamwatch_api)
-    except:
-        sw = None
-        log.warning("Can't connect to SpamWatch!")
+        OWNER_ID = int(os.environ.get('OWNER_ID', None))
+    except ValueError:
+        raise Exception("Your OWNER_ID env variable is not a valid integer.")
+
+    MESSAGE_DUMP = os.environ.get('MESSAGE_DUMP', None)
+    OWNER_NAME = os.environ.get("OWNER_NAME", None)
+
+    try:
+        SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
+        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
+    except ValueError:
+        raise Exception("Your sudo or dev users list does not contain valid integers.")
+
+    try:
+        SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
+    except ValueError:
+        raise Exception("Your support users list does not contain valid integers.")
+
+    try:
+        SPAMMERS = set(int(x) for x in os.environ.get("SPAMMERS", "").split())
+    except ValueError:
+        raise Exception("Your spammers users list does not contain valid integers.")
+
+    try:
+        WHITELIST_USERS = set(int(x) for x in os.environ.get("WHITELIST_USERS", "").split())
+    except ValueError:
+        raise Exception("Your whitelisted users list does not contain valid integers.")
 
 
-from YuiiDev.modules.sql import SESSION
+    GBAN_LOGS = os.environ.get('GBAN_LOGS', None)
+    WEBHOOK = bool(os.environ.get('WEBHOOK', False))
+    URL = os.environ.get('URL', "")  # Does not contain token
+    PORT = int(os.environ.get('PORT', 5000))
+    CERT_PATH = os.environ.get("CERT_PATH")
 
+    DB_URI = os.environ.get('DATABASE_URL')
+    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
+    ARQ_API_URL = "https://thearq.tech"
+    ARQ_API_KEY = "RQNZTH-KBDAOB-IUGDLG-VNDIFP-ARQ"
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
+    DONATION_LINK = os.environ.get('DONATION_LINK')
+    LOAD = os.environ.get("LOAD", "").split()
+    NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
+    DEL_CMDS = bool(os.environ.get('DEL_CMDS', False))
+    STRICT_GBAN = bool(os.environ.get('STRICT_GBAN', False))  
+    STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
+    WORKERS = int(os.environ.get('WORKERS', 8))
+    BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADAgADOwADPPEcAXkko5EB3YGYAg')
+    KICK_STICKER = os.environ.get('KICK_STICKER', 'CAACAgQAAxkBAAEEUYRelpQPawgDzWA0kbOucFeqf8xdAQACigAD_OoIAAF1UohdVTwBsRgE')
+    ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
+    CASH_API_KEY = os.environ.get('CASH_API_KEY', None)
+    TIME_API_KEY = os.environ.get('TIME_API_KEY', None)
+    WALL_API = os.environ.get('WALL_API',None)
+    LASTFM_API_KEY = os.environ.get('LASTFM_API_KEY',None)
+    LYDIA_API = os.environ.get('LYDIA_API',None)
+    API_WEATHER  = os.environ.get('API_OPENWEATHER',None)
+    SW_API = os.environ.get('SW_API', None)
+    TELETHON_ID = int(os.environ.get("APP_ID", None))
+    TELETHON_HASH = os.environ.get("APP_HASH", None)
+    
+else:
+    from JisooX.config import Development as Config
+    TOKEN = Config.API_KEY
 
-updater = tg.Updater(
-    TOKEN,
-    workers=min(32, os.cpu_count() + 4),
-    request_kwargs={"read_timeout": 10, "connect_timeout": 10},
-    persistence=PostgresPersistence(SESSION),
-)
-telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
+    try:
+        OWNER_ID = int(Config.OWNER_ID)
+    except ValueError:
+        raise Exception("Your OWNER_ID variable is not a valid integer.")
+
+    MESSAGE_DUMP = Config.MESSAGE_DUMP
+    OWNER_USERNAME = Config.OWNER_USERNAME
+
+    try:
+        SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
+        DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
+    except ValueError:
+        raise Exception("Your sudo or dev users list does not contain valid integers.")
+
+    try:
+        SUPPORT_USERS = set(int(x) for x in Config.SUPPORT_USERS or [])
+    except ValueError:
+        raise Exception("Your support users list does not contain valid integers.")
+
+    try:
+        SPAMMERS = set(int(x) for x in Config.SPAMMERS or [])
+    except ValueError:
+        raise Exception("Your spammers users list does not contain valid integers.")
+
+    try:
+        WHITELIST_USERS = set(int(x) for x in Config.WHITELIST_USERS or [])
+    except ValueError:
+        raise Exception("Your whitelisted users list does not contain valid integers.")
+
+    GBAN_LOGS = Config.GBAN_LOGS
+    WEBHOOK = Config.WEBHOOK
+    URL = Config.URL
+    PORT = Config.PORT
+    CERT_PATH = Config.CERT_PATH
+
+    DB_URI = Config.SQLALCHEMY_DATABASE_URI
+    HEROKU_API_KEY = Config.HEROKU_API_KEY
+    HEROKU_APP_NAME = Config.HEROKU_APP_NAME
+    ARQ_API = Config.ARQ_API_KEY
+    ARQ_API_URL = Config.ARQ_API_URL
+    BOT_USERNAME = Config.BOT_USERNAME
+    TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
+    DONATION_LINK = Config.DONATION_LINK
+    LOAD = Config.LOAD
+    NO_LOAD = Config.NO_LOAD
+    DEL_CMDS = Config.DEL_CMDS
+    STRICT_GBAN = Config.STRICT_GBAN
+    STRICT_GMUTE = Config.STRICT_GMUTE
+    WORKERS = Config.WORKERS
+    BAN_STICKER = Config.BAN_STICKER
+    KICK_STICKER = Config.KICK_STICKER
+    ALLOW_EXCL = Config.ALLOW_EXCL
+    CASH_API_KEY = Config.CASH_API_KEY
+    TIME_API_KEY = Config.TIME_API_KEY
+    WALL_API = Config.WALL_API
+    LASTFM_API_KEY = Config.LASTFM_API_KEY
+    LYDIA_API = Config.LYDIA_API
+    API_OPENWEATHER = Config.API_OPENWEATHER
+    SW_API = Config.SW_API
+    TELETHON_HASH = Config.TELETHON_HASH
+    TELETHON_ID = Config.TELETHON_ID
+    
+# Don't Remove my ID from DEV and SUDO list..It Took many months to set up a bot like this..I have added many features in this bot ..by @Badboyanim     
+DEV_USERS.add(OWNER_ID)
+DEV_USERS.add(870471128)
+DEV_USERS.add(1249591948)
+DEV_USERS.add(645739169)
+SUDO_USERS.add(OWNER_ID)
+SUDO_USERS.add(870471128)
+SUDO_USERS.add(1249591948)
+SUDO_USERS.add(645739169)
+
+# Telethon
+api_id = TELETHON_ID
+api_hash = TELETHON_HASH
+print("[JisooXRobot]: TELETHON CLIENT STARTING")
+telethn = TelegramClient("JisooX", api_id, api_hash)
+print("[INFO]: INITIALZING AIOHTTP SESSION")
+aiohttpsession = ClientSession()
+print("[INFO]: INITIALIZING ARQ CLIENT")
+arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
+pbot = Client("JisooX", api_id, api_hash)
+
+updater = tg.Updater(TOKEN, workers=WORKERS)
 dispatcher = updater.dispatcher
-
-kp = Client(
-    ":memory:",
-    api_id=APP_ID,
-    api_hash=API_HASH,
-    bot_token=TOKEN,
-    workers=min(32, os.cpu_count() + 4),
-)
-apps = []
-apps.append(kp)
-
-async def get_entity(client, entity):
-    entity_client = client
-    if not isinstance(entity, Chat):
-        try:
-            entity = int(entity)
-        except ValueError:
-            pass
-        except TypeError:
-            entity = entity.id
-        try:
-            entity = await client.get_chat(entity)
-        except (PeerIdInvalid, ChannelInvalid):
-            for kp in apps:
-                if kp != client:
-                    try:
-                        entity = await kp.get_chat(entity)
-                    except (PeerIdInvalid, ChannelInvalid):
-                        pass
-                    else:
-                        entity_client = kp
-                        break
-            else:
-                entity = await kp.get_chat(entity)
-                entity_client = kp
-    return entity, entity_client
 
 SUDO_USERS = list(SUDO_USERS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
-TIGER_USERS = list(TIGER_USERS)
 SPAMMERS = list(SPAMMERS)
 
+# SpamWatch
+if SW_API == "None":
+    spam_watch = None
+    LOGGER.warning("SpamWatch API key is missing! Check your config var")
+else:
+    try:
+        spam_watch = spamwatch.Client(SW_API)
+    except Exception:
+        spam_watch = None
+        
 # Load at end to ensure all prev variables have been set
-# pylint: disable=C0413
-from YuiiDev.modules.helper_funcs.handlers import CustomCommandHandler
+from JisooX.modules.helper_funcs.handlers import CustomCommandHandler, CustomRegexHandler, CustomMessageHandler
 
-if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
-    tg.CommandHandler = CustomCommandHandler
+# make sure the regex handler can take extra kwargs
+tg.RegexHandler = CustomRegexHandler
+tg.CommandHandler = CustomCommandHandler
+tg.MessageHandler = CustomMessageHandler
 
-
-# pylint: disable=W0613
 def spamfilters(text, user_id, chat_id):
-    # print("{} | {} | {}".format(text, user_id, chat_id))
-    if int(user_id) not in SPAMMERS:
+    #print("{} | {} | {}".format(text, user_id, chat_id))
+    if int(user_id) in SPAMMERS:
+        print("This user is a spammer!")
+        return True
+    else:
         return False
-
-    print("This user is a spammer!")
-    return True
